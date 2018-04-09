@@ -141,7 +141,10 @@ describe('main test', function() {
       not(oneOf([1, 2, 3]))
         .check(3)
         .toString()
-    ).toEqual(expect.stringContaining('expected: oneOf(1,2,3), actual: 3'))
+    ).toEqual(expect.stringContaining('(Not) expected: oneOf(1,2,3), actual: 3'))
+
+    expect(not('2').check(2).ok).toBeTruthy()
+    expect(not('2').check('2').ok).toBeFalsy()
 
     expect(not(oneOf([1, '2', 3])).check(2).ok).toBeTruthy()
     expect(not(equal({ a: 2 })).check({}).ok).toBeTruthy()

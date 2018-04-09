@@ -9,20 +9,15 @@ import { Reason, Unlawfulness, UnlawfulnessList } from './Unlawful'
 import { funcify } from './util/index'
 import ToBeReason from './reasons/ToBe'
 import Message from "./reasons/Message";
+import checkEqual from "./util/checkEqual";
 
 export class Not extends Verifiable {
   _check(request: any) {
-    if (this.rule instanceof Verifiable) {
-      const rlt = this.rule.check(request)
-      if (!rlt.ok) {
-        return null
-      }
-
-      return new Unlawfulness(new Message(`(Not) expected: ${this.rule}, actual: ${request}.`))
-    }
-    if (this.rule === request) {
+    const rlt = checkEqual(request, this.rule)
+    if (!rlt.ok) {
       return null
     }
+
     return new Unlawfulness(new Message(`(Not) expected: ${this.rule}, actual: ${request}.`))
   }
 }
