@@ -47,7 +47,7 @@ export class _Object extends Verifiable {
           const ck = checkEqual(key, keyRule)
           if (!ck.ok) {
             ck.eachReasons(function (reason) {
-              reason.setPrefix('KEY ')
+              reason.setPrefix('KEY ' + reason.prefix)
             })
             ck.unshiftPaths(key)
             return ck
@@ -57,7 +57,7 @@ export class _Object extends Verifiable {
         const cv = checkEqual(val, valRule)
         if (!cv.ok) {
           cv.eachReasons(function (reason) {
-            reason.setPrefix('VALUE ')
+            reason.setPrefix('VALUE ' + reason.prefix)
           })
           cv.unshiftPaths(key)
           return cv
