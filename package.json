@@ -1,12 +1,13 @@
 {
   "name": "walli",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "lib/walli.js",
   "description": "A functional style validation library.",
   "author": "imcuttle",
   "scripts": {
     "test": "jest",
-    "dist": "rimraf lib && tsc"
+    "dist": "rimraf lib && tsc",
+    "prepublishOnly": "npm run dist"
   },
   "keywords": [
     "walli", "validation", "valid"
