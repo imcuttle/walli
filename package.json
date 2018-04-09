@@ -1,0 +1,44 @@
+{
+  "name": "walli",
+  "version": "1.0.0",
+  "main": "lib/walli.js",
+  "description": "A functional style validation library.",
+  "author": "imcuttle",
+  "scripts": {
+    "test": "jest",
+    "dist": "rimraf lib && tsc"
+  },
+  "keywords": [
+    "walli", "validation", "valid"
+  ],
+  "repository": "imcuttle/walli",
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.{j,t}s?(x)",
+      "**/?(*.)(spec|test).{j,t}s?(x)"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.2",
+    "@types/lodash": "^4.14.106",
+    "@types/node": "^9.6.2",
+    "jest": "^22.4.3",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.4.2",
+    "typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5"
+  }
+}

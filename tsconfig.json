@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "lib",
+    "sourceMap": false,
+    "declaration": true,
+    "module": "commonjs",
+    "removeComments": false,
+    "moduleResolution": "node",
+    "lib": [
+      "es6"
+    ],
+    "pretty": true
+  },
+  "include": [
+    "!src/__tests__/*",
+    "src/*"
+  ]
+}
