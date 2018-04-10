@@ -16,7 +16,7 @@ import object from '../Object'
 import { single, double } from '../util/quote'
 import Verifiable from '../Verifiable'
 import createVerifiableClass from '../util/createVerifiableClass'
-import {constructify} from "../util";
+import { constructify } from '../util'
 
 describe('main test', function() {
   describe('util', function() {
@@ -58,16 +58,26 @@ describe('main test', function() {
 
   it('should toEqual', function() {
     expect(equal({}).check({}).ok).toBeTruthy()
-    expect(equal(1).check('1').ok).toBeTruthy()
+    expect(equal(1).check('1').ok).toBeFalsy()
     expect(equal({ a: 2 }).ok({})).toBeFalsy()
-    expect(equal({}).ok({ a: 2 })).toBeFalsy()
+    expect(equal({ a: 2 }).ok({ a: '2' })).toBeFalsy()
+
+    expect(equal({ a: 2, b: '2' }).ok({ a: 2 })).toBeFalsy()
+    console.log(
+      equal({ a: 2, b: '2' }).toUnlawfulString({ a: 2, x: '22', b: '2' })
+    )
+
+    expect(equal({}).toUnlawfulString({ a: 2 })).toBe(
+      "expected keys: [], the actual contains not allowed keys: ['a']."
+    )
 
     expect(equal(string()).check('asdas').ok).toBeTruthy()
   })
 
   it('should leq', function() {
     expect(leq({}).check({}).ok).toBeTruthy()
-    expect(leq(1).check('1').ok).toBeTruthy()
+    expect(leq(1).check(1).ok).toBeTruthy()
+    expect(leq(1).check('1').ok).toBeFalsy()
     expect(leq({}).ok({ a: 2 })).toBeTruthy()
   })
 
@@ -137,7 +147,7 @@ describe('main test', function() {
     expect(oneOf([1, 2, 3]).check(3).ok).toBeTruthy()
     expect(oneOf([1, '2', 3]).check(2).ok).toBeFalsy()
 
-    expect(oneOf([1, equal('2'), 3]).check(2).ok).toBeTruthy()
+    expect(oneOf([1, 2, 3]).check(2).ok).toBeTruthy()
   })
 
   it('should not', function() {
@@ -244,8 +254,8 @@ describe('main test', function() {
           v: 2.222
         })
     ).toBe(
-      'a: VALUE expected: \'fixed\', actual: \'22\'.\n' +
-        'v: VALUE expected: \'fixed\', actual: 2.222.'
+      "a: VALUE expected: 'fixed', actual: '22'.\n" +
+        "v: VALUE expected: 'fixed', actual: 2.222."
     )
   })
 
@@ -279,7 +289,7 @@ describe('main test', function() {
   it('should createVerifiableClass', () => {
     const cls = createVerifiableClass({
       _check(req: any) {
-        return string()._check(req)
+        return string().check(req)
       },
       getInitialRule() {
         return '222'
@@ -296,10 +306,10 @@ describe('main test', function() {
     expect(cls().ok('22222')).toBeTruthy()
     expect(cls().rule).toBe('222')
     expect(cls().options).toBe('opp')
-    expect(cls().toString()).toBe('DDD(\'222\')')
+    expect(cls().toString()).toBe("DDD('222')")
     expect(constructify(cls).displayName).toBe('DDD')
 
     constructify(cls).displayName = null
-    expect(cls().toString()).toBe('verifiableClass(\'222\')')
+    expect(cls().toString()).toBe("verifiableClass('222')")
   })
 })

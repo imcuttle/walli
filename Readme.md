@@ -7,6 +7,51 @@
 
 A functional style validation library.
 
+
+## [Example](./src/__tests__/examples.spec.ts)
+
+- Expected Struction
+```typescript
+// typescript
+type Person = {
+  name: string
+  age: string
+  gender: 'F' | 'M'
+  father?: Person
+  mother?: Person
+  children?: Person[]
+}
+```
+
+- Walli Type's Definition
+```javascript
+import {
+  string,
+  eq,
+  oneOf,
+  array,
+  integer,
+} from '../walli'
+import { util } from '../walli'
+const { createVerifiableClass } = util
+
+const person = createVerifiableClass({
+  getDisplayName() {
+    return 'person'
+  },
+  _check(req) {
+    return eq({
+      name: string(),
+      age: integer(),
+      gender: oneOf(['F', 'M']),
+      father: person().optional(),
+      mother: person().optional(),
+      children: array(person()).optional()
+    }).check(req)
+  }
+})
+```
+
 ## [Exported API](./src/walli.ts)
 
 [More Detail](https://imcuttle.github.io/walli)

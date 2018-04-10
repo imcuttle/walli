@@ -21,7 +21,7 @@ import { UnlawfulnessList } from './Unlawful'
 export class Some extends Verifiable {
   public rule: any[]
 
-  _check(request: any) {
+  protected _check(request: any) {
     return <UnlawfulnessList>some(this.rule, request)
   }
 }

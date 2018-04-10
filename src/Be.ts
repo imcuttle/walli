@@ -19,7 +19,7 @@ import ToEqual from './reasons/Equal'
  * ```
  */
 export class Be extends Verifiable {
-  _check(request: any) {
+  protected _check(request: any) {
     if (this.rule === request) {
       return null
     }

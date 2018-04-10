@@ -15,7 +15,7 @@ import { funcify } from './util/index'
  * ```
  */
 export class Any extends Verifiable {
-  _check(request: any) {
+  protected _check(request: any) {
     return null
   }
 }

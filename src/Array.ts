@@ -21,7 +21,7 @@ import checkEqual from "./util/checkEqual";
  * ```
  */
 export class Array extends Verifiable {
-  _check(request: any[]) {
+  protected _check(request: any[]) {
     if (!isArray(request)) {
       return new Type(new TypeItem(Array), TypeItem.fromInstance(request))
     }

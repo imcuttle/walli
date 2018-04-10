@@ -17,7 +17,7 @@ import { funcify, getTypeName } from './util/index'
 export class InstanceOf extends Verifiable {
   rule: Function
 
-  _check(request: any) {
+  protected _check(request: any) {
     if (request instanceof this.rule) {
       return null
     }

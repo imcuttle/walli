@@ -15,7 +15,7 @@ import { InnerEqual } from './InnerEqual'
  * please see the twin brother [[LooseEqual]] for more information.
  * ```javascript
  * eq([]).ok([]) === true
- * eq('222').ok(222) === true
+ * eq('222').ok(222) === false
  * eq(['222']).ok([222]) === false
  * eq({ a: { b: '2' } }).ok({ a: { b: '2' } }) === true
  * // The actual value contains `.c` which isn't allowed.

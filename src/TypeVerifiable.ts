@@ -16,7 +16,7 @@ export class TypeVerifiable extends Verifiable {
     typeName?: string
   }
 
-  _check(request: any) {
+  protected _check(request: any) {
     if (this.rule(request)) {
       return null
     }

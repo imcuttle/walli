@@ -33,7 +33,7 @@ export class Object_ extends Verifiable {
     }
   }
 
-  _check(request: any) {
+  protected _check(request: any) {
     if (request === null || typeof request !== 'object') {
       return new Unlawfulness(
         new Type(

@@ -6,7 +6,7 @@
  */
 import Verifiable from './Verifiable'
 import { Unlawfulness, UnlawfulnessList } from './Unlawful'
-import {funcify, isRequired, toString} from './util/index'
+import { funcify, isRequired, toString } from './util/index'
 import * as _ from 'lodash'
 import ToEqualReason from './reasons/Equal'
 import Type, { TypeItem } from './reasons/TypeReason'
@@ -46,7 +46,7 @@ export class InnerEqual extends Verifiable {
     return this._extends(_.assign, ...data)
   }
 
-  _check(request: any) {
+  protected _check(request: any) {
     const loose = this.options.loose
 
     const rule = this.rule
@@ -67,15 +67,26 @@ export class InnerEqual extends Verifiable {
         }
 
         let ruleKeys = Object.keys(rule)
-        let requiredRuleKeys = ruleKeys.filter(
-          key => isRequired(rule[key])
-        )
         let reqKeys = Object.keys(request)
         if (!loose) {
-          if (requiredRuleKeys.length !== reqKeys.length) {
+          const notAllowedKeys = reqKeys.filter(
+            key => ruleKeys.indexOf(key) < 0
+          )
+
+          if (notAllowedKeys.length > 0) {
+            let keys = []
+            ruleKeys.forEach(key => {
+              if (isRequired(rule[key])) {
+                keys.push(key)
+              } else {
+                keys.push(key + '?')
+              }
+            })
             return `expected keys: ${toString(
-              requiredRuleKeys
-            )}, actual keys: ${toString(reqKeys)}.`
+              keys
+            )}, the actual contains not allowed keys: ${toString(
+              notAllowedKeys
+            )}.`
           }
         }
 
@@ -109,7 +120,7 @@ export class InnerEqual extends Verifiable {
           list.filter(x => !_.isUndefined(x)).concat(appendList)
         )
       }
-      if (rule == request || _.isEqual(rule, request)) {
+      if (_.isEqual(rule, request)) {
         return null
       }
       return new ToEqualReason(rule, request)

@@ -21,7 +21,7 @@ export class OneOf extends Verifiable {
     super(rules)
   }
 
-  _check(request: any) {
+  protected _check(request: any) {
     let unlaw, errorRule
     const ok = this.rule.some((rule, k) => {
       errorRule = rule

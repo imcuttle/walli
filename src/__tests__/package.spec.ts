@@ -57,7 +57,7 @@ class VersionRange extends Verifiable {
         })
       ]),
       version()
-    ])._check(req)
+    ]).check(req)
   }
 }
 const vRange = funcify(VersionRange)
@@ -160,7 +160,7 @@ describe('package', function() {
           url: string(),
           checkout: string().optional(),
           version: string().optional()
-        })._check(req)
+        }).check(req)
       },
       getDisplayName() {
         return 'strictSource'
@@ -169,7 +169,7 @@ describe('package', function() {
 
     const source = createVerifiableClass({
       _check(req: any) {
-        return oneOf([strictSource(), string()])._check(req)
+        return oneOf([strictSource(), string()]).check(req)
       },
       getDisplayName() {
         return 'source'
@@ -252,11 +252,11 @@ describe('package', function() {
     expect(checkEqual('123', 123).ok === true).toBeFalsy()
     expect(checkEqual('123', '1234').ok === false).toBeTruthy()
     expect(checkEqual('123', string()).ok === true).toBeTruthy()
-    expect(checkEqual('123', 123, eq).ok === true).toBeTruthy()
+    expect(checkEqual('123', 123, any).ok === true).toBeTruthy()
 
     const age = createVerifiableClass({
       _check(req) {
-        return integer()._check(req)
+        return integer().check(req)
       },
       getDisplayName() {
         return 'Age'
