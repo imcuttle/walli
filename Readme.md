@@ -50,6 +50,13 @@ const person = createVerifiableClass({
     }).check(req)
   }
 })
+
+person().ok({
+  // ...
+})
+person().toUnlawfulString({
+  // ...
+})
 ```
 
 ## [Exported API](./src/walli.ts)
