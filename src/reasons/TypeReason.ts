@@ -6,11 +6,11 @@
  */
 import { Reason } from '../Unlawful'
 import { format } from 'util'
-import { name } from '../util'
+import { getTypeName } from '../util'
 
 export class TypeItem {
   static fromInstance(ins: any) {
-    return new TypeItem(ins == null ? ins : ins.constructor, name(ins))
+    return new TypeItem(ins == null ? ins : ins.constructor, getTypeName(ins))
   }
 
   constructor(public type: Function & { name?: string }, public name?: string) {

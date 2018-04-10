@@ -14,6 +14,9 @@ import instanceOf from '../InstanceOf'
 import object from '../Object'
 
 import { single, double } from '../util/quote'
+import Verifiable from '../Verifiable'
+import createVerifiableClass from '../util/createVerifiableClass'
+import {constructify} from "../util";
 
 describe('main test', function() {
   describe('util', function() {
@@ -95,9 +98,9 @@ describe('main test', function() {
 
   it('should equal deep', function() {
     const a = equal({
-      a: equal({
-        'asd"asd\'xx': equal([string(), be('456'), 'xxx'])
-      })
+      a: {
+        'asd"asd\'xx': [string(), be('456'), 'xxx']
+      }
     })
     expect(
       a.ok({
@@ -117,7 +120,9 @@ describe('main test', function() {
 
     console.log(
       a.toUnlawfulString({
-        a: {}
+        a: {
+          'asd"asd\'xx': ['nis', '456', 'xxx']
+        }
       })
     )
   })
@@ -141,7 +146,9 @@ describe('main test', function() {
       not(oneOf([1, 2, 3]))
         .check(3)
         .toString()
-    ).toEqual(expect.stringContaining('(Not) expected: oneOf(1,2,3), actual: 3'))
+    ).toEqual(
+      expect.stringContaining('(Not) expected: oneOf([1, 2, 3]), actual: 3')
+    )
 
     expect(not('2').check(2).ok).toBeTruthy()
     expect(not('2').check('2').ok).toBeFalsy()
@@ -211,7 +218,7 @@ describe('main test', function() {
     expect(instanceOf(Function).ok('22')).toBeFalsy()
 
     expect(instanceOf(Function).toUnlawfulString('22')).toBe(
-      'should instance of Function, but string'
+      'should instance of function, but string'
     )
   })
 
@@ -237,8 +244,8 @@ describe('main test', function() {
           v: 2.222
         })
     ).toBe(
-      'a: VALUE expected: fixed, actual: 22\n' +
-      'v: VALUE expected: fixed, actual: 2.222'
+      'a: VALUE expected: \'fixed\', actual: \'22\'.\n' +
+        'v: VALUE expected: \'fixed\', actual: 2.222.'
     )
   })
 
@@ -257,5 +264,42 @@ describe('main test', function() {
         }
       })
     )
+  })
+
+  it('should displayName', function() {
+    class T extends Verifiable {
+      static displayName = 'ABC'
+    }
+    expect(oneOf().toString()).toEqual('oneOf()')
+    expect(new T().toString()).toEqual('ABC()')
+    T.displayName = null
+    expect(new T().toString()).toEqual('t()')
+  })
+
+  it('should createVerifiableClass', () => {
+    const cls = createVerifiableClass({
+      _check(req: any) {
+        return string()._check(req)
+      },
+      getInitialRule() {
+        return '222'
+      },
+      getInitialOptions() {
+        return 'opp'
+      },
+      getDisplayName() {
+        return 'DDD'
+      }
+    })
+
+    expect(cls().ok(222)).toBeFalsy()
+    expect(cls().ok('22222')).toBeTruthy()
+    expect(cls().rule).toBe('222')
+    expect(cls().options).toBe('opp')
+    expect(cls().toString()).toBe('DDD(\'222\')')
+    expect(constructify(cls).displayName).toBe('DDD')
+
+    constructify(cls).displayName = null
+    expect(cls().toString()).toBe('verifiableClass(\'222\')')
   })
 })

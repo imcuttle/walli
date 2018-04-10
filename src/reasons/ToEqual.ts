@@ -1,4 +1,7 @@
 import { Reason } from '../Unlawful'
+import {
+  toString
+} from '../util'
 
 /**
  * @file ToBe
@@ -15,6 +18,6 @@ export default class ToEqualReason extends Reason {
   }
 
   toHumanMessage() {
-    return `expected: ${this.expect}, actual: ${this.actual}`
+    return `expected: ${toString(this.expect, { empty: 'undefined' })}, actual: ${toString(this.actual, { empty: 'undefined' })}`
   }
 }

@@ -5,7 +5,7 @@
  * @description
  */
 import Verifiable from './Verifiable'
-import { funcify, name } from './util/index'
+import { funcify, getTypeName } from './util/index'
 
 export class InstanceOf extends Verifiable {
   rule: Function
@@ -15,7 +15,7 @@ export class InstanceOf extends Verifiable {
       return null
     }
 
-    return `should instance of ${name(this.rule)}, but ${name(request)}`
+    return `should instance of ${getTypeName(this.rule)}, but ${getTypeName(request)}`
   }
 }
 

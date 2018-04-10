@@ -10,7 +10,9 @@
     "prepublishOnly": "npm run dist"
   },
   "keywords": [
-    "walli", "validation", "valid"
+    "walli",
+    "validation",
+    "valid"
   ],
   "repository": "imcuttle/walli",
   "jest": {
@@ -40,6 +42,7 @@
     "typescript": "^2.8.1"
   },
   "dependencies": {
+    "json-stringify-safe": "^5.0.1",
     "lodash": "^4.17.5"
   }
 }

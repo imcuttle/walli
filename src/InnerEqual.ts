@@ -6,11 +6,12 @@
  */
 import Verifiable from './Verifiable'
 import { Unlawfulness, UnlawfulnessList } from './Unlawful'
-import { funcify } from './util/index'
+import {funcify, isRequired, toString} from './util/index'
 import * as _ from 'lodash'
 import ToEqualReason from './reasons/ToEqual'
 import Type, { TypeItem } from './reasons/TypeReason'
-import checkEqual from "./util/checkEqual";
+import checkEqual from './util/checkEqual'
+import any from './Any'
 
 function isObjectMap(data: any) {
   return _.isObject(data) && !_.isNull(data)
@@ -23,6 +24,26 @@ export class InnerEqual extends Verifiable {
 
   private _eq = (rule?: any) => {
     return new InnerEqual(rule, this.options)
+  }
+
+  private _extends(method: Function, ...objs: any[]) {
+    objs = objs.map(obj => {
+      if (obj instanceof Verifiable) {
+        obj = obj.rule
+      }
+      return obj
+    })
+
+    method(this.rule, ...objs)
+    return this
+  }
+
+  public merge(...data: Array<any | Verifiable>) {
+    return this._extends(_.merge, ...data)
+  }
+
+  public assign(...data: Array<any | Verifiable>) {
+    return this._extends(_.assign, ...data)
   }
 
   _check(request: any) {
@@ -45,26 +66,47 @@ export class InnerEqual extends Verifiable {
           )
         }
 
+        let ruleKeys = Object.keys(rule)
+        let requiredRuleKeys = ruleKeys.filter(
+          key => isRequired(rule[key])
+        )
+        let reqKeys = Object.keys(request)
         if (!loose) {
-          let ruleKeys = Object.keys(rule)
-          let reqKeys = Object.keys(request)
-          if (ruleKeys.length !== reqKeys.length) {
-            return `expected keys: [${ruleKeys.join(', ')}], actual keys: [${reqKeys.join(', ')}]`
+          if (requiredRuleKeys.length !== reqKeys.length) {
+            return `expected keys: ${toString(
+              requiredRuleKeys
+            )}, actual keys: ${toString(reqKeys)}.`
           }
         }
 
-        return new UnlawfulnessList(
-          Object.keys(rule).map(key => {
-            const r = rule[key]
-            // skip
-            if ((r instanceof Verifiable) && !r.isRequired && !(key in request)) {
-              return new UnlawfulnessList()
-            }
+        const list = Array(reqKeys.length)
+        const appendList = []
+        Object.keys(rule).forEach(key => {
+          let reqKeyIndex = reqKeys.indexOf(key)
+          let r = rule[key]
+          // Skipping when the rule is optional and the value is undefined.
+          if (
+            r instanceof Verifiable &&
+            !r.isRequired &&
+            typeof request[key] === 'undefined'
+          ) {
+            return
+          }
 
-            let checked = checkEqual(request[key], r, this._eq)
+          let checked = checkEqual(request[key], r, this._eq)
+          if (!checked.ok) {
             checked.unshiftPaths(key)
-            return checked
-          })
+
+            if (reqKeyIndex >= 0) {
+              list[reqKeyIndex] = checked
+            } else {
+              appendList.push(checked)
+            }
+          }
+        })
+
+        return new UnlawfulnessList(
+          list.filter(x => !_.isUndefined(x)).concat(appendList)
         )
       }
       if (rule == request || _.isEqual(rule, request)) {

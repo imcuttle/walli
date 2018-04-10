@@ -7,10 +7,10 @@
 import { toArray } from './util/index'
 import { single } from './util/quote'
 import HasMessage from './util/HasMessage'
-import { uniq } from 'lodash'
 
 export class FunctionWithName extends Function {
   name: string
+  displayName: string
 }
 
 export class Reason extends HasMessage {
@@ -64,14 +64,15 @@ export class Unlawfulness {
     this.reasons = toArray(reasons)
     this.paths = paths || []
   }
-  toString({ unique = true } = {}) {
+  public unshiftPath(...items) {
+    this.paths.unshift(...items)
+  }
+
+  toString() {
     let prefix = pathsToString(this.paths)
     prefix = prefix ? prefix + ': ' : prefix
 
     let process = function (list: string[]) {
-      if (unique) {
-        list = uniq(list)
-      }
       return list
     }
 
@@ -89,6 +90,9 @@ export class UnlawfulnessList {
   get length(): number {
     return this.list.length
   }
+  first() {
+    return this.list[0]
+  }
   push(...items: any[]) {
     const list = []
     items.forEach(item => {
@@ -104,13 +108,13 @@ export class UnlawfulnessList {
   get ok(): boolean {
     return !this.list.length
   }
-  toString({ delimiter = '\n', unique = true } = {}) {
-    return this.list.map(unlaw => unlaw.toString({ unique })).join(delimiter)
+  toString({ delimiter = '\n' } = {}) {
+    return this.list.map(unlaw => unlaw.toString()).join(delimiter)
   }
 
   unshiftPaths(...items) {
     this.list.forEach(item => {
-      item.paths.unshift(...items)
+      item.unshiftPath(...items)
       return item
     })
     return this

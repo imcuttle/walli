@@ -13,7 +13,7 @@ import { isArray } from 'lodash'
 
 const Gobject = global.Object
 
-export class _Object extends Verifiable {
+export class Object_ extends Verifiable {
   // [valRule, keyRule]
   public rule: [any, any]
 
@@ -68,4 +68,4 @@ export class _Object extends Verifiable {
   }
 }
 
-export default funcify<_Object>(_Object)
+export default funcify<Object_>(Object_)

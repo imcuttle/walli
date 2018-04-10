@@ -6,6 +6,7 @@ import { Reason } from '../Unlawful'
  * @date 2018/4/8
  * @description
  */
+import { toString } from '../util'
 
 export default class ToBeReason extends Reason {
   constructor(public expect: any, public actual: any) {
@@ -15,6 +16,6 @@ export default class ToBeReason extends Reason {
   }
 
   toHumanMessage() {
-    return `expected: ${this.expect}, actual: ${this.actual}`
+    return `expected: ${toString(this.expect, { empty: 'nothing' })}, actual: ${toString(this.actual, { empty: 'nothing' })}.`
   }
 }

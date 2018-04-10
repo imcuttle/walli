@@ -7,9 +7,8 @@
 import Verifiable from './Verifiable'
 import { Unlawfulness, UnlawfulnessList } from './Unlawful'
 import Type, { TypeItem } from './reasons/TypeReason'
-import { funcify } from './util/index'
+import { funcify, toString } from './util/index'
 import checkEqual from './util/checkEqual'
-import Message from './reasons/Message'
 
 export class OneOf extends Verifiable {
   public rule: any[]
@@ -18,14 +17,18 @@ export class OneOf extends Verifiable {
   }
 
   _check(request: any) {
-    const ok = this.rule.some(rule => {
-      const result = checkEqual(request, rule)
-      return result.ok
+    let unlaw, errorRule
+    const ok = this.rule.some((rule, k) => {
+      errorRule = rule
+      unlaw = checkEqual(request, rule)
+      return unlaw.ok
     })
 
-    return ok
-      ? null
-      : `should be one of [${this.rule.join(', ')}], but received: ${request}`
+    if (ok) {
+      return null
+    }
+
+    return `expected ${this.toString()}, actual ${toString(request)}.`
   }
 }
 

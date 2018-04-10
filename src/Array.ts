@@ -21,15 +21,16 @@ export class Array extends Verifiable {
       return null
     }
 
-    let unlaw = null
-    request.every(req => {
+    let unlawList = new UnlawfulnessList()
+    request.forEach((req, i) => {
       const c = checkEqual(req, this.rule)
       if (c.ok) {
-        return true
+        return
       }
-      unlaw = c
+      c.unshiftPaths(i)
+      unlawList.push(c)
     })
-    return unlaw
+    return unlawList
   }
 }
 

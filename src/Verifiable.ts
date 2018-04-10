@@ -11,9 +11,17 @@ import {
   UnlawfulnessList
 } from './Unlawful'
 import Message from './reasons/Message'
-import { isString, set, get, PropertyPath } from 'lodash'
+import {
+  camelCase,
+  isString,
+  isFunction,
+  set,
+  get,
+  isArray,
+  PropertyPath
+} from 'lodash'
 import HasMessage from './util/HasMessage'
-import { funcify } from './util'
+import { getDisplayName, funcify, toString, toArray } from './util'
 
 export type CheckAble =
   | string
@@ -33,8 +41,7 @@ export default class Verifiable extends HasMessage {
   set(paths?: PropertyPath, val?: any) {
     if (typeof paths === 'undefined') {
       this.rule = val
-    }
-    else {
+    } else {
       set(this.rule, paths, val)
     }
     return this
@@ -101,10 +108,18 @@ export default class Verifiable extends HasMessage {
     return this.check(request).toString(options)
   }
 
-  toString() {
-    let name = (<FunctionWithName>this.constructor).name || 'unKnown'
-    name = `${name[0].toLowerCase()}${name.slice(1)}`
+  static displayName: string
 
-    return `${name}(${this.rule || ''})`
+  public getTypeName(): string {
+    return getDisplayName(this.constructor, { camel: true }) || 'unKnown'
+  }
+
+  public getRuleString(): string {
+    return toString(this.rule, { empty: '' })
+  }
+
+  toString() {
+    let name = this.getTypeName()
+    return `${name}(${this.getRuleString()})`
   }
 }
