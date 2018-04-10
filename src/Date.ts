@@ -8,6 +8,9 @@ import { funcify } from './util/index'
 import { isDate } from 'lodash'
 import { TypeVerifiable } from './TypeVerifiable'
 
+/**
+ * Type Verifies: isDate
+ */
 export class Date extends TypeVerifiable {
   rule = req => isDate(req)
   options = {

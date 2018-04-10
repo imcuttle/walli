@@ -8,6 +8,9 @@ import { funcify } from './util/index'
 import { isBoolean } from 'lodash'
 import { TypeVerifiable } from './TypeVerifiable'
 
+/**
+ * Type Verifies: Checks isBoolean
+ */
 export class Boolean extends TypeVerifiable {
   rule = isBoolean
   options = {

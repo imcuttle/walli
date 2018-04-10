@@ -7,6 +7,13 @@
 import Verifiable from './Verifiable'
 import { funcify } from './util/index'
 
+/**
+ * Anything is passed.
+ *
+ * ```javascript
+ * any().ok('any') === true
+ * ```
+ */
 export class Any extends Verifiable {
   _check(request: any) {
     return null

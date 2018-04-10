@@ -9,6 +9,7 @@ import { Unlawfulness, UnlawfulnessList } from './Unlawful'
 import Type, { TypeItem } from './reasons/TypeReason'
 import { funcify, toString } from './util/index'
 import checkEqual from './util/checkEqual'
+import ToEqualReason from "./reasons/Equal";
 
 export class OneOf extends Verifiable {
   public rule: any[]
@@ -28,7 +29,7 @@ export class OneOf extends Verifiable {
       return null
     }
 
-    return `expected ${this.toString()}, actual ${toString(request)}.`
+    return new ToEqualReason(this, request)
   }
 }
 

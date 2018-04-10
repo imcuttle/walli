@@ -87,9 +87,9 @@ describe('package', function() {
       })
     ).toEqual(
       'version: The version should shape of 1.0.0, but x2.3.1\n' +
-        "dependencies['json-stringify-safe']: KEY expected type number, actual type string.\n" +
-        "dependencies['lodash']: KEY expected type number, actual type string.\n" +
-        "dependencies['x']: KEY expected type number, actual type string."
+        "dependencies['json-stringify-safe']: KEY expected type: number, actual type: string.\n" +
+        "dependencies['lodash']: KEY expected type: number, actual type: string.\n" +
+        "dependencies['x']: KEY expected type: number, actual type: string."
     )
   })
 
@@ -108,9 +108,9 @@ describe('package', function() {
           version: 'x2.3.1'
         })
     ).toEqual(
-      "dependencies['json-stringify-safe']: KEY expected type number, actual type string.\n" +
-        "dependencies['lodash']: KEY expected type number, actual type string.\n" +
-        "dependencies['x']: KEY expected type number, actual type string."
+      "dependencies['json-stringify-safe']: KEY expected type: number, actual type: string.\n" +
+        "dependencies['lodash']: KEY expected type: number, actual type: string.\n" +
+        "dependencies['x']: KEY expected type: number, actual type: string."
     )
 
     rule.set('version', versionR)
@@ -127,10 +127,10 @@ describe('package', function() {
     }
 
     expect(rule.toUnlawfulString(val)).toEqual(
-      'version: expected type string, actual type undefined.\n' +
-        "dependencies['json-stringify-safe']: KEY expected type number, actual type string.\n" +
-        "dependencies['lodash']: KEY expected type number, actual type string.\n" +
-        "dependencies['x']: KEY expected type number, actual type string."
+      'version: expected type: string, actual type: undefined.\n' +
+        "dependencies['json-stringify-safe']: KEY expected type: number, actual type: string.\n" +
+        "dependencies['lodash']: KEY expected type: number, actual type: string.\n" +
+        "dependencies['x']: KEY expected type: number, actual type: string."
     )
 
     delete val.version
@@ -146,9 +146,9 @@ describe('package', function() {
         )
         .toUnlawfulString(val)
     ).toEqual(
-      "dependencies['json-stringify-safe']: KEY expected type number, actual type string.\n" +
-        "dependencies['lodash']: KEY expected type number, actual type string.\n" +
-        "dependencies['x']: KEY expected type number, actual type string."
+      "dependencies['json-stringify-safe']: KEY expected type: number, actual type: string.\n" +
+        "dependencies['lodash']: KEY expected type: number, actual type: string.\n" +
+        "dependencies['x']: KEY expected type: number, actual type: string."
     )
   })
 
@@ -219,11 +219,11 @@ describe('package', function() {
         }
       })
     ).toEqual(
-      'name: expected type string, actual type null.\n' +
-        'updateNotify: expected type boolean, actual type string.\n' +
-        "plugins['1']['0']: expected type function, actual type null.\n" +
-        "plugins['2']: expected type array, actual type null.\n" +
-        "pull['npmClient']: expected oneOf(['yarn', 'npm']), actual 'abc'."
+      'name: expected type: string, actual type: null.\n' +
+        'updateNotify: expected type: boolean, actual type: string.\n' +
+        "plugins['1']['0']: expected type: function, actual type: null.\n" +
+        "plugins['2']: expected type: array, actual type: null.\n" +
+        "pull['npmClient']: expected: oneOf(['yarn', 'npm']), actual: 'abc'."
     )
   })
 })

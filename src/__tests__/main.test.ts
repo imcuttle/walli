@@ -37,7 +37,7 @@ describe('main test', function() {
         .message()
         .check(null)
         .toString()
-    ).toEqual('expected type string, actual type null.')
+    ).toEqual('expected type: string, actual type: null.')
 
     expect(
       string()
@@ -163,14 +163,14 @@ describe('main test', function() {
 
     expect(rule.ok({})).toBeFalsy()
     expect(rule.toUnlawfulString({})).toBe(
-      'expected type number, actual type object.'
+      'expected type: number, actual type: object.'
     )
 
     expect(rule.ok('12')).toBeTruthy()
     expect(rule.toUnlawfulString('12')).toBe('')
 
     expect(rule.toUnlawfulString(12)).toBe(
-      'expected type string, actual type number.'
+      'expected type: string, actual type: number.'
     )
   })
 

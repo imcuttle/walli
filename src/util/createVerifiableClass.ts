@@ -18,7 +18,6 @@ export default function createVerifiableClass<
     getRuleString?: Function
     getTypeName?: Function
     toString?: Function
-
     getInitialRule?: () => any
     getInitialOptions?: () => any
     getDisplayName?: () => string

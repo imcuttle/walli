@@ -5,7 +5,6 @@
  * @description
  */
 import { Reason } from '../Unlawful'
-import { format } from 'util'
 import { getTypeName } from '../util'
 
 export class TypeItem {
@@ -19,22 +18,15 @@ export class TypeItem {
   }
 
   public getDisplayName() {
-    return this.name || this.type.name || 'Unknown'
+    return this.name || getTypeName(this.type)
   }
 }
 
 export default class TypeReason extends Reason {
-  constructor(public expectType: TypeItem, public actualType?: TypeItem) {
-    super()
-    this.expectType = expectType
-    this.actualType = actualType
-  }
+  public expect: TypeItem
+  public actual: TypeItem
 
   toHumanMessage() {
-    return format(
-      'expected type %s, actual type %s.',
-      this.expectType.getDisplayName(),
-      this.actualType.getDisplayName()
-    )
+    return `expected type: ${this.expect.getDisplayName()}, actual type: ${this.actual.getDisplayName()}.`
   }
 }

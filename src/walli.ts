@@ -5,6 +5,7 @@
  * @description
  */
 
+// methods
 export { Be, default as be } from './Be'
 export { OneOf, default as oneOf } from './OneOf'
 export { default as object, Object_ as Object } from './Object'
@@ -29,12 +30,15 @@ export { default as strictNumber, StrictNumber } from './StrictNumber'
 export { default as instanceOf, InstanceOf } from './InstanceOf'
 export { default as function_, Function } from './Function'
 export { default as integer, Integer } from './Integer'
+
+// types
 export { default as Verifiable } from './Verifiable'
 export { UnlawfulnessList, Unlawfulness, Reason } from './Unlawful'
 export { default as TypeReason, TypeItem } from './reasons/TypeReason'
-
+export { default as ToEqualReason } from './reasons/Equal'
 export { CheckAble } from './Verifiable'
 
+// util
 import checkEqual from './util/checkEqual'
 import createVerifiableClass from './util/createVerifiableClass'
 import {

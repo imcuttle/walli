@@ -7,9 +7,8 @@
 import Verifiable from './Verifiable'
 import { Reason, Unlawfulness, UnlawfulnessList } from './Unlawful'
 import { funcify } from './util/index'
-import ToBeReason from './reasons/ToBe'
-import Message from "./reasons/Message";
-import checkEqual from "./util/checkEqual";
+import Message from './reasons/Message'
+import checkEqual from './util/checkEqual'
 
 export class Not extends Verifiable {
   _check(request: any) {
@@ -18,7 +17,9 @@ export class Not extends Verifiable {
       return null
     }
 
-    return new Unlawfulness(new Message(`(Not) expected: ${this.rule}, actual: ${request}.`))
+    return new Unlawfulness(
+      new Message(`(Not) expected: ${this.rule}, actual: ${request}.`)
+    )
   }
 }
 

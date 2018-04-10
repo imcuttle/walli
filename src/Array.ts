@@ -11,6 +11,15 @@ import { isArray } from 'lodash'
 import Type, { TypeItem } from './reasons/TypeReason'
 import checkEqual from "./util/checkEqual";
 
+/**
+ * Checks whether the request belongs to array and observe the rule.
+ * ```javascript
+ * array('a').ok('a') === false // 'a' is not an array.
+ * array('a').ok(['a']) === true
+ * array('a').ok(['a', 'a']) === true
+ * array('a').ok(['a', 'c']) === false // 'c' do not observe the rule `be('a')`
+ * ```
+ */
 export class Array extends Verifiable {
   _check(request: any[]) {
     if (!isArray(request)) {

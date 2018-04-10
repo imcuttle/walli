@@ -14,6 +14,12 @@ export class FunctionWithName extends Function {
 }
 
 export class Reason extends HasMessage {
+  constructor(public expect?: any, public actual?: any) {
+    super()
+    this.expect = expect
+    this.actual = actual
+  }
+
   public prefix: string = ''
   public setPrefix(prefix: string) {
     this.prefix = prefix
