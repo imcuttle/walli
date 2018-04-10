@@ -7,4 +7,55 @@
 
 A functional style validation library.
 
-[Document](https://imcuttle.github.io/walli)
+## [Exported API](./src/walli.ts)
+
+[More Detail](https://imcuttle.github.io/walli)
+
+## Verifiable List
+### function_()
+### null_()
+### undefined_()
+### object(...)
+#### object(value)
+#### object([value, key])
+### array(value)
+### be(value)
+### oneOf([a, b, c])
+### equal(value)
+- Alias `eq`
+### looseEqual(value)
+- Alias `leq`
+### any()
+### not(value)
+### every([a, b, c])
+### some([a, b, c])
+### custom((...requests) => string | null)
+### nil()
+- null or undefined
+### string()
+### number()
+### strictNumber()
+### instanceOf(Type)
+### integer()
+
+## Class List
+### Verifiable
+### UnlawfulnessList
+### Unlawfulness
+### Reason
+### TypeReason
+### TypeItem
+### ToEqualReason
+
+## Utilities
+### checkEqual(request: any, expected, fallbackVerifiable)
+### single(str)
+### double(str)
+### inherits(Child, Parent)
+### getDisplayName(Type)
+### isRequired(req)
+### toString(instance)
+### funcify(Class)
+### constructify(Class)
+### getTypeName(Type)
+### createVerifiableClass(entities, options)

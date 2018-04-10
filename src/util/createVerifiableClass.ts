@@ -8,7 +8,7 @@ import Verifiable, { CheckAble } from '../Verifiable'
 import { Unlawfulness, UnlawfulnessList } from '../Unlawful'
 import { funcify, constructify, inherits } from './index'
 
-export type ES5Entry = {
+export type ES5Entity = {
   _check?: (req: any) => CheckAble
   getRuleString?: Function
   getTypeName?: Function
@@ -57,7 +57,7 @@ export type ES5Entry = {
  *
  * constructify(age) === Age // true
  * ```
- * @param {ES5Entry} entry
+ * @param {ES5Entity} entity
  * @param {any} useFuncify
  * @param {any} ParentClass
  * @return {(rule?: Rule, options?: Options) => Result}
@@ -67,7 +67,7 @@ export default function createVerifiableClass<
   Rule = any,
   Options = any
 >(
-  entry: ES5Entry = {},
+  entity: ES5Entity = {},
   { useFuncify = true, ParentClass = Verifiable } = {}
 ): (rule?: Rule, options?: Options) => Result {
   const {
@@ -75,7 +75,7 @@ export default function createVerifiableClass<
     getInitialOptions = () => undefined,
     getInitialRule = () => undefined,
     ...proto
-  } = entry
+  } = entity
 
   const VerifiableClass = function() {
     this.rule = getInitialRule()
