@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1523363991588" clover="3.2.0">
+  <project timestamp="1523363991588" name="All files">
+    <metrics statements="618" coveredstatements="594" conditionals="246" coveredconditionals="186" methods="145" coveredmethods="134" elements="1009" coveredelements="914" complexity="0" loc="618" ncloc="618" packages="3" files="36" classes="36">
+      <package name="src">
+        <metrics statements="468" coveredstatements="450" conditionals="153" coveredconditionals="120" methods="103" coveredmethods="95"/>
+        <file name="Any.ts" path="/Users/yucong02/self/walli/src/Any.ts">
+          <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="19" count="3" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+        </file>
+        <file name="Array.ts" path="/Users/yucong02/self/walli/src/Array.ts">
+          <metrics statements="22" coveredstatements="20" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="3"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="24" count="6" type="stmt"/>
+          <line num="25" count="6" type="cond" truecount="1" falsecount="1"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="29" count="6" type="cond" truecount="1" falsecount="1"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="33" count="6" type="stmt"/>
+          <line num="34" count="6" type="stmt"/>
+          <line num="35" count="18" type="stmt"/>
+          <line num="36" count="18" type="cond" truecount="2" falsecount="0"/>
+          <line num="37" count="15" type="stmt"/>
+          <line num="39" count="3" type="stmt"/>
+          <line num="40" count="3" type="stmt"/>
+          <line num="42" count="6" type="stmt"/>
+          <line num="44" count="1" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
+        </file>
+        <file name="Be.ts" path="/Users/yucong02/self/walli/src/Be.ts">
+          <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="21" count="2" type="stmt"/>
+          <line num="22" count="2" type="stmt"/>
+          <line num="23" count="38" type="cond" truecount="2" falsecount="0"/>
+          <line num="24" count="14" type="stmt"/>
+          <line num="26" count="24" type="stmt"/>
+          <line num="28" count="2" type="stmt"/>
+          <line num="30" count="2" type="stmt"/>
+        </file>
+        <file name="Boolean.ts" path="/Users/yucong02/self/walli/src/Boolean.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="14" count="5" type="cond" truecount="2" falsecount="1"/>
+          <line num="15" count="5" type="stmt"/>
+          <line num="16" count="5" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+        </file>
+        <file name="Custom.ts" path="/Users/yucong02/self/walli/src/Custom.ts">
+          <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+        </file>
+        <file name="Date.ts" path="/Users/yucong02/self/walli/src/Date.ts">
+          <metrics statements="8" coveredstatements="6" conditionals="3" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="14" count="1" type="cond" truecount="0" falsecount="3"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+        </file>
+        <file name="Equal.ts" path="/Users/yucong02/self/walli/src/Equal.ts">
+          <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="26" count="18" type="stmt"/>
+          <line num="27" count="18" type="cond" truecount="1" falsecount="1"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="31" count="2" type="stmt"/>
+        </file>
+        <file name="Every.ts" path="/Users/yucong02/self/walli/src/Every.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
+          <line num="26" count="2" type="stmt"/>
+          <line num="27" count="7" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="31" count="2" type="stmt"/>
+        </file>
+        <file name="Function.ts" path="/Users/yucong02/self/walli/src/Function.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="14" count="1" type="cond" truecount="2" falsecount="1"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+        </file>
+        <file name="InnerEqual.ts" path="/Users/yucong02/self/walli/src/InnerEqual.ts">
+          <metrics statements="59" coveredstatements="56" conditionals="35" coveredconditionals="29" methods="12" coveredmethods="11"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="17" count="105" type="cond" truecount="2" falsecount="0"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="21" count="84" type="cond" truecount="1" falsecount="1"/>
+          <line num="22" count="42" type="cond" truecount="1" falsecount="1"/>
+          <line num="25" count="42" type="stmt"/>
+          <line num="26" count="15" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="31" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="41" count="2" type="stmt"/>
+          <line num="42" count="0" type="stmt"/>
+          <line num="45" count="2" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
+          <line num="49" count="46" type="stmt"/>
+          <line num="50" count="46" type="stmt"/>
+          <line num="52" count="46" type="stmt"/>
+          <line num="53" count="46" type="cond" truecount="2" falsecount="0"/>
+          <line num="55" count="45" type="cond" truecount="4" falsecount="0"/>
+          <line num="57" count="35" type="cond" truecount="2" falsecount="0"/>
+          <line num="61" count="2" type="stmt"/>
+          <line num="69" count="33" type="stmt"/>
+          <line num="70" count="33" type="stmt"/>
+          <line num="71" count="74" type="stmt"/>
+          <line num="73" count="33" type="stmt"/>
+          <line num="74" count="33" type="cond" truecount="2" falsecount="0"/>
+          <line num="75" count="21" type="cond" truecount="2" falsecount="0"/>
+          <line num="76" count="3" type="stmt"/>
+          <line num="82" count="30" type="stmt"/>
+          <line num="83" count="30" type="stmt"/>
+          <line num="84" count="30" type="stmt"/>
+          <line num="85" count="72" type="stmt"/>
+          <line num="86" count="72" type="stmt"/>
+          <line num="88" count="72" type="cond" truecount="2" falsecount="0"/>
+          <line num="93" count="9" type="stmt"/>
+          <line num="96" count="63" type="stmt"/>
+          <line num="97" count="63" type="cond" truecount="2" falsecount="0"/>
+          <line num="98" count="16" type="stmt"/>
+          <line num="100" count="16" type="cond" truecount="1" falsecount="1"/>
+          <line num="101" count="16" type="stmt"/>
+          <line num="103" count="0" type="stmt"/>
+          <line num="108" count="30" type="stmt"/>
+          <line num="109" count="16" type="stmt"/>
+          <line num="112" count="10" type="cond" truecount="2" falsecount="2"/>
+          <line num="113" count="10" type="stmt"/>
+          <line num="115" count="0" type="stmt"/>
+          <line num="118" count="1" type="stmt"/>
+          <line num="120" count="2" type="stmt"/>
+          <line num="122" count="2" type="stmt"/>
+        </file>
+        <file name="InstanceOf.ts" path="/Users/yucong02/self/walli/src/InstanceOf.ts">
+          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="21" count="9" type="cond" truecount="2" falsecount="0"/>
+          <line num="22" count="4" type="stmt"/>
+          <line num="25" count="5" type="stmt"/>
+          <line num="27" count="2" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+        </file>
+        <file name="Integer.ts" path="/Users/yucong02/self/walli/src/Integer.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="14" count="2" type="cond" truecount="2" falsecount="1"/>
+          <line num="15" count="2" type="stmt"/>
+          <line num="16" count="2" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+        </file>
+        <file name="LooseEqual.ts" path="/Users/yucong02/self/walli/src/LooseEqual.ts">
+          <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="26" count="2" type="stmt"/>
+          <line num="27" count="9" type="stmt"/>
+          <line num="28" count="9" type="cond" truecount="1" falsecount="1"/>
+          <line num="30" count="2" type="stmt"/>
+          <line num="32" count="2" type="stmt"/>
+        </file>
+        <file name="Nil.ts" path="/Users/yucong02/self/walli/src/Nil.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="14" count="4" type="cond" truecount="2" falsecount="1"/>
+          <line num="15" count="4" type="stmt"/>
+          <line num="16" count="4" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="22" count="2" type="stmt"/>
+        </file>
+        <file name="Not.ts" path="/Users/yucong02/self/walli/src/Not.ts">
+          <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="22" count="2" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
+          <line num="24" count="7" type="stmt"/>
+          <line num="25" count="7" type="cond" truecount="2" falsecount="0"/>
+          <line num="26" count="3" type="stmt"/>
+          <line num="29" count="4" type="stmt"/>
+          <line num="33" count="2" type="stmt"/>
+          <line num="35" count="2" type="stmt"/>
+        </file>
+        <file name="Null.ts" path="/Users/yucong02/self/walli/src/Null.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="14" count="4" type="cond" truecount="2" falsecount="1"/>
+          <line num="15" count="4" type="stmt"/>
+          <line num="16" count="4" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="22" count="2" type="stmt"/>
+        </file>
+        <file name="Number.ts" path="/Users/yucong02/self/walli/src/Number.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="13" count="9" type="cond" truecount="2" falsecount="1"/>
+          <line num="14" count="9" type="stmt"/>
+          <line num="15" count="30" type="stmt"/>
+          <line num="17" count="9" type="stmt"/>
+          <line num="21" count="2" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
+        </file>
+        <file name="Object.ts" path="/Users/yucong02/self/walli/src/Object.ts">
+          <metrics statements="34" coveredstatements="34" conditionals="18" coveredconditionals="16" methods="6" coveredmethods="6"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="30" count="7" type="cond" truecount="1" falsecount="1"/>
+          <line num="31" count="7" type="cond" truecount="2" falsecount="0"/>
+          <line num="32" count="4" type="stmt"/>
+          <line num="36" count="2" type="stmt"/>
+          <line num="37" count="9" type="cond" truecount="4" falsecount="0"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="46" count="8" type="cond" truecount="4" falsecount="0"/>
+          <line num="47" count="2" type="stmt"/>
+          <line num="50" count="6" type="stmt"/>
+          <line num="51" count="6" type="stmt"/>
+          <line num="53" count="16" type="stmt"/>
+          <line num="55" count="16" type="cond" truecount="1" falsecount="1"/>
+          <line num="56" count="16" type="stmt"/>
+          <line num="57" count="16" type="cond" truecount="2" falsecount="0"/>
+          <line num="58" count="12" type="stmt"/>
+          <line num="59" count="12" type="stmt"/>
+          <line num="61" count="12" type="stmt"/>
+          <line num="62" count="12" type="stmt"/>
+          <line num="66" count="4" type="stmt"/>
+          <line num="67" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="68" count="2" type="stmt"/>
+          <line num="69" count="2" type="stmt"/>
+          <line num="71" count="2" type="stmt"/>
+          <line num="72" count="2" type="stmt"/>
+          <line num="74" count="2" type="stmt"/>
+          <line num="78" count="2" type="stmt"/>
+          <line num="80" count="2" type="stmt"/>
+        </file>
+        <file name="OneOf.ts" path="/Users/yucong02/self/walli/src/OneOf.ts">
+          <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="26" count="9" type="stmt"/>
+          <line num="27" count="23" type="stmt"/>
+          <line num="28" count="23" type="stmt"/>
+          <line num="29" count="23" type="stmt"/>
+          <line num="32" count="9" type="cond" truecount="2" falsecount="0"/>
+          <line num="33" count="6" type="stmt"/>
+          <line num="36" count="3" type="stmt"/>
+          <line num="38" count="2" type="stmt"/>
+          <line num="40" count="2" type="stmt"/>
+        </file>
+        <file name="Some.ts" path="/Users/yucong02/self/walli/src/Some.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="21" count="2" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="25" count="5" type="stmt"/>
+          <line num="27" count="2" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+        </file>
+        <file name="StrictNumber.ts" path="/Users/yucong02/self/walli/src/StrictNumber.ts">
+          <metrics statements="8" coveredstatements="6" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="19" count="1" type="cond" truecount="0" falsecount="3"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+        </file>
+        <file name="String.ts" path="/Users/yucong02/self/walli/src/String.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="14" count="30" type="cond" truecount="2" falsecount="1"/>
+          <line num="15" count="30" type="stmt"/>
+          <line num="16" count="30" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="22" count="2" type="stmt"/>
+        </file>
+        <file name="TypeVerifiable.ts" path="/Users/yucong02/self/walli/src/TypeVerifiable.ts">
+          <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+          <line num="19" count="2" type="stmt"/>
+          <line num="20" count="99" type="cond" truecount="2" falsecount="0"/>
+          <line num="21" count="62" type="stmt"/>
+          <line num="24" count="37" type="stmt"/>
+          <line num="30" count="2" type="stmt"/>
+          <line num="31" count="3" type="stmt"/>
+          <line num="33" count="2" type="stmt"/>
+          <line num="35" count="2" type="stmt"/>
+        </file>
+        <file name="Undefined.ts" path="/Users/yucong02/self/walli/src/Undefined.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="14" count="4" type="cond" truecount="2" falsecount="1"/>
+          <line num="15" count="4" type="stmt"/>
+          <line num="16" count="4" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="22" count="2" type="stmt"/>
+        </file>
+        <file name="Unlawful.ts" path="/Users/yucong02/self/walli/src/Unlawful.ts">
+          <metrics statements="74" coveredstatements="69" conditionals="24" coveredconditionals="21" methods="29" coveredmethods="25"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="16" count="2" type="stmt"/>
+          <line num="17" count="80" type="stmt"/>
+          <line num="18" count="80" type="cond" truecount="2" falsecount="0"/>
+          <line num="19" count="80" type="stmt"/>
+          <line num="20" count="80" type="stmt"/>
+          <line num="23" count="80" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="25" count="14" type="stmt"/>
+          <line num="26" count="14" type="stmt"/>
+          <line num="28" count="80" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="38" count="2" type="stmt"/>
+          <line num="39" count="27" type="stmt"/>
+          <line num="43" count="2" type="stmt"/>
+          <line num="44" count="28" type="cond" truecount="2" falsecount="0"/>
+          <line num="46" count="2" type="stmt"/>
+          <line num="49" count="28" type="cond" truecount="4" falsecount="0"/>
+          <line num="50" count="22" type="cond" truecount="2" falsecount="0"/>
+          <line num="51" count="7" type="stmt"/>
+          <line num="54" count="15" type="stmt"/>
+          <line num="59" count="16" type="stmt"/>
+          <line num="64" count="6" type="stmt"/>
+          <line num="67" count="2" type="stmt"/>
+          <line num="69" count="80" type="stmt"/>
+          <line num="70" count="80" type="stmt"/>
+          <line num="71" count="80" type="cond" truecount="2" falsecount="0"/>
+          <line num="73" count="42" type="stmt"/>
+          <line num="74" count="42" type="stmt"/>
+          <line num="77" count="2" type="stmt"/>
+          <line num="78" count="28" type="stmt"/>
+          <line num="79" count="28" type="cond" truecount="2" falsecount="0"/>
+          <line num="81" count="28" type="stmt"/>
+          <line num="82" count="28" type="stmt"/>
+          <line num="85" count="28" type="stmt"/>
+          <line num="89" count="2" type="stmt"/>
+          <line num="91" count="2" type="stmt"/>
+          <line num="92" count="246" type="stmt"/>
+          <line num="93" count="376" type="cond" truecount="2" falsecount="0"/>
+          <line num="94" count="246" type="stmt"/>
+          <line num="96" count="2" type="stmt"/>
+          <line num="97" count="0" type="stmt"/>
+          <line num="99" count="2" type="stmt"/>
+          <line num="100" count="0" type="stmt"/>
+          <line num="102" count="257" type="stmt"/>
+          <line num="103" count="257" type="stmt"/>
+          <line num="104" count="257" type="stmt"/>
+          <line num="105" count="123" type="cond" truecount="2" falsecount="0"/>
+          <line num="106" count="80" type="stmt"/>
+          <line num="107" count="43" type="cond" truecount="1" falsecount="1"/>
+          <line num="108" count="43" type="stmt"/>
+          <line num="112" count="257" type="stmt"/>
+          <line num="114" count="2" type="stmt"/>
+          <line num="115" count="220" type="stmt"/>
+          <line num="117" count="36" type="cond" truecount="2" falsecount="2"/>
+          <line num="118" count="28" type="stmt"/>
+          <line num="121" count="33" type="stmt"/>
+          <line num="122" count="33" type="stmt"/>
+          <line num="123" count="42" type="stmt"/>
+          <line num="124" count="42" type="stmt"/>
+          <line num="126" count="33" type="stmt"/>
+          <line num="129" count="2" type="stmt"/>
+          <line num="130" count="14" type="stmt"/>
+          <line num="131" count="14" type="stmt"/>
+          <line num="133" count="14" type="stmt"/>
+          <line num="135" count="2" type="stmt"/>
+        </file>
+        <file name="Verifiable.ts" path="/Users/yucong02/self/walli/src/Verifiable.ts">
+          <metrics statements="62" coveredstatements="58" conditionals="24" coveredconditionals="21" methods="16" coveredmethods="14"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="35" count="531" type="cond" truecount="2" falsecount="0"/>
+          <line num="36" count="191" type="cond" truecount="2" falsecount="0"/>
+          <line num="37" count="191" type="stmt"/>
+          <line num="38" count="191" type="stmt"/>
+          <line num="51" count="2" type="stmt"/>
+          <line num="52" count="6" type="cond" truecount="2" falsecount="0"/>
+          <line num="53" count="1" type="stmt"/>
+          <line num="55" count="5" type="stmt"/>
+          <line num="57" count="6" type="stmt"/>
+          <line num="72" count="2" type="stmt"/>
+          <line num="73" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="74" count="1" type="stmt"/>
+          <line num="76" count="3" type="stmt"/>
+          <line num="83" count="2" type="stmt"/>
+          <line num="84" count="4" type="stmt"/>
+          <line num="91" count="191" type="stmt"/>
+          <line num="96" count="2" type="stmt"/>
+          <line num="97" count="0" type="stmt"/>
+          <line num="98" count="0" type="stmt"/>
+          <line num="115" count="2" type="stmt"/>
+          <line num="116" count="17" type="stmt"/>
+          <line num="117" count="17" type="stmt"/>
+          <line num="126" count="2" type="stmt"/>
+          <line num="127" count="0" type="stmt"/>
+          <line num="135" count="241" type="stmt"/>
+          <line num="136" count="241" type="stmt"/>
+          <line num="138" count="241" type="cond" truecount="2" falsecount="0"/>
+          <line num="139" count="51" type="stmt"/>
+          <line num="140" count="190" type="cond" truecount="2" falsecount="0"/>
+          <line num="141" count="31" type="stmt"/>
+          <line num="142" count="159" type="cond" truecount="1" falsecount="1"/>
+          <line num="143" count="0" type="stmt"/>
+          <line num="144" count="159" type="cond" truecount="2" falsecount="0"/>
+          <line num="145" count="9" type="stmt"/>
+          <line num="146" count="150" type="cond" truecount="2" falsecount="0"/>
+          <line num="147" count="40" type="stmt"/>
+          <line num="149" count="110" type="stmt"/>
+          <line num="152" count="241" type="cond" truecount="2" falsecount="0"/>
+          <line num="153" count="1" type="stmt"/>
+          <line num="154" count="1" type="stmt"/>
+          <line num="155" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="157" count="1" type="stmt"/>
+          <line num="160" count="241" type="stmt"/>
+          <line num="163" count="2" type="stmt"/>
+          <line num="164" count="45" type="stmt"/>
+          <line num="165" count="45" type="stmt"/>
+          <line num="177" count="2" type="stmt"/>
+          <line num="178" count="14" type="stmt"/>
+          <line num="190" count="2" type="stmt"/>
+          <line num="191" count="16" type="cond" truecount="1" falsecount="1"/>
+          <line num="201" count="2" type="stmt"/>
+          <line num="202" count="13" type="stmt"/>
+          <line num="212" count="2" type="stmt"/>
+          <line num="213" count="15" type="stmt"/>
+          <line num="214" count="15" type="stmt"/>
+          <line num="216" count="2" type="stmt"/>
+        </file>
+        <file name="walli.ts" path="/Users/yucong02/self/walli/src/walli.ts">
+          <metrics statements="33" coveredstatements="33" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="39" count="1" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+          <line num="43" count="1" type="stmt"/>
+          <line num="44" count="1" type="stmt"/>
+          <line num="45" count="1" type="stmt"/>
+          <line num="54" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.reasons">
+        <metrics statements="29" coveredstatements="29" conditionals="6" coveredconditionals="4" methods="11" coveredmethods="11"/>
+        <file name="Equal.ts" path="/Users/yucong02/self/walli/src/reasons/Equal.ts">
+          <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+        </file>
+        <file name="Message.ts" path="/Users/yucong02/self/walli/src/reasons/Message.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="13" type="stmt"/>
+          <line num="11" count="13" type="cond" truecount="1" falsecount="1"/>
+          <line num="12" count="13" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="15" count="3" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+        </file>
+        <file name="TypeReason.ts" path="/Users/yucong02/self/walli/src/reasons/TypeReason.ts">
+          <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="6"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="12" count="42" type="cond" truecount="2" falsecount="0"/>
+          <line num="15" count="80" type="stmt"/>
+          <line num="16" count="80" type="stmt"/>
+          <line num="17" count="80" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="21" count="42" type="cond" truecount="1" falsecount="1"/>
+          <line num="23" count="2" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="30" count="21" type="stmt"/>
+          <line num="32" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.util">
+        <metrics statements="121" coveredstatements="115" conditionals="87" coveredconditionals="62" methods="31" coveredmethods="28"/>
+        <file name="HasMessage.ts" path="/Users/yucong02/self/walli/src/util/HasMessage.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="271" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="12" count="270" type="stmt"/>
+          <line num="24" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="25" count="4" type="stmt"/>
+          <line num="26" count="4" type="stmt"/>
+          <line num="28" count="2" type="stmt"/>
+        </file>
+        <file name="checkEqual.ts" path="/Users/yucong02/self/walli/src/util/checkEqual.ts">
+          <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="22" count="154" type="cond" truecount="2" falsecount="0"/>
+          <line num="23" count="90" type="stmt"/>
+          <line num="26" count="154" type="cond" truecount="2" falsecount="0"/>
+          <line num="27" count="109" type="stmt"/>
+          <line num="29" count="45" type="stmt"/>
+        </file>
+        <file name="createVerifiableClass.ts" path="/Users/yucong02/self/walli/src/util/createVerifiableClass.ts">
+          <metrics statements="19" coveredstatements="19" conditionals="16" coveredconditionals="10" methods="5" coveredmethods="5"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="65" count="2" type="stmt"/>
+          <line num="70" count="4" type="cond" truecount="1" falsecount="1"/>
+          <line num="71" count="8" type="cond" truecount="3" falsecount="3"/>
+          <line num="74" count="4" type="stmt"/>
+          <line num="75" count="8" type="cond" truecount="2" falsecount="0"/>
+          <line num="76" count="8" type="cond" truecount="2" falsecount="0"/>
+          <line num="77" count="4" type="stmt"/>
+          <line num="80" count="4" type="stmt"/>
+          <line num="81" count="13" type="stmt"/>
+          <line num="82" count="13" type="stmt"/>
+          <line num="84" count="4" type="stmt"/>
+          <line num="85" count="4" type="stmt"/>
+          <line num="87" count="4" type="cond" truecount="1" falsecount="1"/>
+          <line num="88" count="4" type="stmt"/>
+          <line num="90" count="4" type="stmt"/>
+          <line num="91" count="4" type="stmt"/>
+          <line num="94" count="4" type="stmt"/>
+        </file>
+        <file name="index.ts" path="/Users/yucong02/self/walli/src/util/index.ts">
+          <metrics statements="57" coveredstatements="51" conditionals="53" coveredconditionals="37" methods="14" coveredmethods="11"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+          <line num="19" count="2" type="stmt"/>
+          <line num="20" count="58" type="cond" truecount="2" falsecount="0"/>
+          <line num="30" count="2" type="stmt"/>
+          <line num="33" count="51" type="stmt"/>
+          <line num="34" count="187" type="stmt"/>
+          <line num="35" count="187" type="cond" truecount="1" falsecount="1"/>
+          <line num="36" count="187" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="41" count="51" type="stmt"/>
+          <line num="42" count="51" type="stmt"/>
+          <line num="44" count="51" type="stmt"/>
+          <line num="47" count="2" type="stmt"/>
+          <line num="48" count="84" type="cond" truecount="2" falsecount="0"/>
+          <line num="49" count="3" type="stmt"/>
+          <line num="51" count="81" type="stmt"/>
+          <line num="54" count="2" type="stmt"/>
+          <line num="63" count="2" type="stmt"/>
+          <line num="65" count="55" type="cond" truecount="1" falsecount="3"/>
+          <line num="68" count="0" type="stmt"/>
+          <line num="71" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="73" count="55" type="stmt"/>
+          <line num="75" count="55" type="stmt"/>
+          <line num="77" count="0" type="stmt"/>
+          <line num="79" count="55" type="stmt"/>
+          <line num="89" count="2" type="stmt"/>
+          <line num="91" count="32" type="cond" truecount="2" falsecount="2"/>
+          <line num="93" count="16" type="cond" truecount="2" falsecount="0"/>
+          <line num="94" count="4" type="stmt"/>
+          <line num="97" count="12" type="cond" truecount="1" falsecount="1"/>
+          <line num="98" count="12" type="cond" truecount="1" falsecount="1"/>
+          <line num="100" count="0" type="stmt"/>
+          <line num="108" count="2" type="stmt"/>
+          <line num="109" count="52" type="stmt"/>
+          <line num="110" count="52" type="cond" truecount="4" falsecount="0"/>
+          <line num="111" count="114" type="stmt"/>
+          <line num="112" count="38" type="cond" truecount="2" falsecount="1"/>
+          <line num="114" count="52" type="stmt"/>
+          <line num="123" count="76" type="cond" truecount="4" falsecount="0"/>
+          <line num="124" count="38" type="cond" truecount="2" falsecount="0"/>
+          <line num="125" count="5" type="stmt"/>
+          <line num="128" count="33" type="cond" truecount="2" falsecount="0"/>
+          <line num="129" count="13" type="stmt"/>
+          <line num="131" count="23" type="cond" truecount="2" falsecount="0"/>
+          <line num="132" count="1" type="stmt"/>
+          <line num="135" count="22" type="cond" truecount="2" falsecount="0"/>
+          <line num="136" count="13" type="stmt"/>
+          <line num="139" count="9" type="cond" truecount="1" falsecount="1"/>
+          <line num="140" count="0" type="stmt"/>
+          <line num="143" count="9" type="cond" truecount="1" falsecount="1"/>
+          <line num="151" count="2" type="stmt"/>
+          <line num="152" count="74" type="cond" truecount="2" falsecount="0"/>
+          <line num="153" count="57" type="stmt"/>
+          <line num="156" count="17" type="stmt"/>
+        </file>
+        <file name="quote.ts" path="/Users/yucong02/self/walli/src/util/quote.ts">
+          <metrics statements="14" coveredstatements="14" conditionals="8" coveredconditionals="5" methods="4" coveredmethods="4"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="23" count="33" type="cond" truecount="2" falsecount="2"/>
+          <line num="29" count="33" type="stmt"/>
+          <line num="30" count="33" type="stmt"/>
+          <line num="33" count="10" type="stmt"/>
+          <line num="34" count="10" type="stmt"/>
+          <line num="48" count="2" type="stmt"/>
+          <line num="49" count="31" type="stmt"/>
+          <line num="57" count="2" type="stmt"/>
+          <line num="58" count="2" type="stmt"/>
+        </file>
+        <file name="ruleEachBreakable.ts" path="/Users/yucong02/self/walli/src/util/ruleEachBreakable.ts">
+          <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="5" count="12" type="stmt"/>
+          <line num="6" count="12" type="stmt"/>
+          <line num="7" count="18" type="stmt"/>
+          <line num="8" count="18" type="cond" truecount="2" falsecount="0"/>
+          <line num="9" count="10" type="stmt"/>
+          <line num="11" count="8" type="stmt"/>
+          <line num="14" count="12" type="cond" truecount="2" falsecount="0"/>
+          <line num="15" count="6" type="stmt"/>
+          <line num="17" count="6" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="21" count="5" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="25" count="7" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
