@@ -4,3 +4,4 @@ node_modules/
 dist/
 public/
 lib/
+_site/

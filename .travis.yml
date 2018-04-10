@@ -18,7 +18,7 @@ jobs:
   include:
     - stage: Document deploy
       allow_failure: true
-      script: npm run site:build
+      script: npm run site
       deploy:
         edge:
           branch: v1.8.47
