@@ -5,8 +5,6 @@
  * @description
  */
 
-import { CheckAble } from './Verifiable'
-
 export { Be, default as be } from './Be'
 export { OneOf, default as oneOf } from './OneOf'
 export { default as object, Object_ as Object } from './Object'
@@ -34,6 +32,8 @@ export { default as integer, Integer } from './Integer'
 export { default as Verifiable } from './Verifiable'
 export { UnlawfulnessList, Unlawfulness, Reason } from './Unlawful'
 export { default as TypeReason, TypeItem } from './reasons/TypeReason'
+
+export { CheckAble } from './Verifiable'
 
 import checkEqual from './util/checkEqual'
 import createVerifiableClass from './util/createVerifiableClass'
