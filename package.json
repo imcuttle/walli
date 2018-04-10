@@ -9,6 +9,9 @@
     "dist": "rimraf lib && tsc",
     "prepublishOnly": "npm run dist"
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "walli",
     "validation",
