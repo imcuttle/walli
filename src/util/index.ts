@@ -4,7 +4,6 @@
  * @date 2018/4/7
  * @description
  */
-import { inherits } from 'util'
 import { find, isArray, camelCase, isPlainObject } from 'lodash'
 import Verifiable from '../Verifiable'
 import { single } from './quote'
@@ -49,6 +48,29 @@ const rename = [
   [Number, 'number'],
   [Function, 'function']
 ]
+
+export function inherits(Child, Super) {
+  const extendStatics =
+    Object.setPrototypeOf ||
+    ({ __proto__: [] } instanceof Array &&
+      function(Child, Super) {
+        Child.__proto__ = Super
+      }) ||
+    function(Child, Super) {
+      for (let p in Super) if (Super.hasOwnProperty(p)) Child[p] = Super[p]
+    }
+  extendStatics(Child, Super)
+  // Node Version
+  Child.super_ = Super
+  function __() {
+    this.constructor = Child
+  }
+  Child.prototype = Object.setPrototypeOf
+    ? Object.setPrototypeOf(Child.prototype, Super.prototype)
+    : Super === null
+      ? Object.create(Super)
+      : ((__.prototype = Super.prototype), new __())
+}
 
 export function getDisplayName(data: any, { camel = false } = {}) {
   if (typeof data.displayName === 'string') {

@@ -43,9 +43,11 @@ import {
   getDisplayName,
   isRequired,
   constructify,
-  toString
+  toString,
+  inherits
 } from './util'
 export const util = {
+  inherits,
   getDisplayName,
   isRequired,
   toString,

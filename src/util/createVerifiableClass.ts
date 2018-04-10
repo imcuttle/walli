@@ -6,8 +6,7 @@
  */
 import Verifiable, { CheckAble } from '../Verifiable'
 import { Unlawfulness, UnlawfulnessList } from '../Unlawful'
-import { funcify, constructify } from './index'
-import { inherits } from 'util'
+import { funcify, constructify, inherits } from './index'
 
 export default function createVerifiableClass<
   Result = Verifiable,
@@ -27,7 +26,7 @@ export default function createVerifiableClass<
   { useFuncify = true, ParentClass = Verifiable } = {}
 ): (rule?: Rule, options?: Options) => Result {
   const {
-    getDisplayName = () => null,
+    getDisplayName,
     getInitialOptions = () => undefined,
     getInitialRule = () => undefined,
     ...proto
@@ -38,19 +37,14 @@ export default function createVerifiableClass<
     this.options = getInitialOptions()
   }
   ParentClass = constructify(ParentClass)
-  VerifiableClass.prototype = Object.create(
-    new ParentClass(getInitialRule(), getInitialOptions())
-  )
-  VerifiableClass.prototype.constructor = VerifiableClass
-
-  Object.keys(proto)
-    .forEach(name => {
-      VerifiableClass.prototype[name] = proto[name]
-    })
-
-  VerifiableClass['displayName'] = getDisplayName()
-
   inherits(VerifiableClass, ParentClass)
+
+  if (typeof getDisplayName === 'function') {
+    VerifiableClass['displayName'] = getDisplayName()
+  }
+  Object.keys(proto).forEach(name => {
+    VerifiableClass.prototype[name] = proto[name]
+  })
 
   return useFuncify
     ? funcify<Result, Rule, Options>(VerifiableClass)
