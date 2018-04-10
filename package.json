@@ -1,6 +1,6 @@
 {
   "name": "walli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "lib/walli.js",
   "description": "A functional style validation library.",
   "author": "imcuttle",
