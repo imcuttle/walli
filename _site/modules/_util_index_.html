@@ -101,7 +101,7 @@
 					<div class="tsd-signature tsd-kind-icon">rename<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ArrayConstructor</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">StringConstructor</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObjectConstructor</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">BooleanConstructor</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NumberConstructor</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FunctionConstructor</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[[Array, &#x27;array&#x27;],[String, &#x27;string&#x27;],[Object, &#x27;object&#x27;],[Boolean, &#x27;boolean&#x27;],[Number, &#x27;number&#x27;],[Function, &#x27;function&#x27;]]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/index.ts#L43">util/index.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/index.ts#L54">util/index.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -111,7 +111,7 @@
 					<div class="tsd-signature tsd-kind-icon">safe<wbr>Stringify<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&#x27;json-stringify-safe&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/index.ts#L11">util/index.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/index.ts#L12">util/index.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -128,9 +128,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/index.ts#L13">util/index.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/index.ts#L19">util/index.ts:19</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Constructify(reverse of funcify) the function, see <a href="_util_createverifiableclass_.html#createverifiableclass">createVerifiableClass</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -151,9 +156,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/index.ts#L19">util/index.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/index.ts#L30">util/index.ts:30</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Funcify the constructor, see <a href="_util_createverifiableclass_.html#createverifiableclass">createVerifiableClass</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -201,19 +211,24 @@
 					<a name="getdisplayname" class="tsd-anchor"></a>
 					<h3>get<wbr>Display<wbr>Name</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Display<wbr>Name<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, __namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Display<wbr>Name<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../classes/_unlawful_.functionwithname.html" class="tsd-signature-type">FunctionWithName</a>, __namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/index.ts#L75">util/index.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/index.ts#L89">util/index.ts:89</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets display name from Function.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>data: <span class="tsd-signature-type">any</span></h5>
+									<h5>func: <a href="../classes/_unlawful_.functionwithname.html" class="tsd-signature-type">FunctionWithName</a></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> __namedParameters: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
@@ -224,7 +239,7 @@
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -238,9 +253,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/index.ts#L86">util/index.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/index.ts#L108">util/index.ts:108</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets type&#39;s name from instance.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -261,7 +281,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/index.ts#L52">util/index.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/index.ts#L63">util/index.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -287,9 +307,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/index.ts#L118">util/index.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/index.ts#L151">util/index.ts:151</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks rule is required</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -310,7 +335,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/index.ts#L36">util/index.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/index.ts#L47">util/index.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -339,9 +364,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/index.ts#L95">util/index.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/index.ts#L123">util/index.ts:123</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>To pretty string from anything.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -352,6 +382,9 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
 											<h5>empty<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<p>the string placeholder when equals undefined</p>
+											</div>
 										</li>
 									</ul>
 								</li>

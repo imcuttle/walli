@@ -13,6 +13,15 @@ import { isArray } from 'lodash'
 
 const Gobject = global.Object
 
+/**
+ * Checks object's shape.
+ *
+ * ```javascript
+ * object('val').ok({ a: 'val', b: 'val' }) === true
+ * object('val').ok({}) === true
+ * object('val').ok({ a: 'xxx' }) === false
+ * ```
+ */
 export class Object_ extends Verifiable {
   // [valRule, keyRule]
   public rule: [any, any]

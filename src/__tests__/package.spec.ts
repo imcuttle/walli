@@ -10,6 +10,7 @@ import {
   Verifiable,
   array,
   object,
+  integer,
   any,
   custom,
   boolean,
@@ -17,8 +18,7 @@ import {
   some
 } from '../walli'
 import { util } from '../walli'
-import { constructify } from '../util'
-const { funcify, createVerifiableClass } = util
+const { funcify, constructify, createVerifiableClass, checkEqual } = util
 
 const pkg = require('../../package.json')
 
@@ -214,7 +214,7 @@ describe('package', function() {
         storePrompts: true,
         source: {
           type: 'npm',
-          url: 'asdadsa',
+          url: 'asdadsa'
           // checkout: ''
         }
       })
@@ -225,5 +225,64 @@ describe('package', function() {
         "plugins['2']: expected type: array, actual type: null.\n" +
         "pull['npmClient']: expected: oneOf(['yarn', 'npm']), actual: 'abc'."
     )
+  })
+
+  it('should example', function() {
+    expect(
+      oneOf(['123', string()]).getRuleString() === "['123', string()]"
+    ).toBeTruthy()
+
+    expect(
+      eq({ a: 'a' })
+        .set('a', 'bbb')
+        .ok({ a: 'bbb' }) === true
+    ).toBeTruthy()
+    expect(
+      eq({ a: 'a' })
+        .set(void 0, 'bbb')
+        .ok('bbb') === true
+    ).toBeTruthy()
+
+    expect(eq({ a: 'a' }).get('a') === 'a').toBeTruthy()
+    expect(eq({ a: 'a' }).ok(eq({ a: 'a' }).get()) === true).toBeTruthy()
+  })
+
+  it('should example2', function() {
+    expect(checkEqual('123', '123').ok === true).toBeTruthy()
+    expect(checkEqual('123', 123).ok === true).toBeFalsy()
+    expect(checkEqual('123', '1234').ok === false).toBeTruthy()
+    expect(checkEqual('123', string()).ok === true).toBeTruthy()
+    expect(checkEqual('123', 123, eq).ok === true).toBeTruthy()
+
+    const age = createVerifiableClass({
+      _check(req) {
+        return integer()._check(req)
+      },
+      getDisplayName() {
+        return 'Age'
+      }
+    })
+
+    expect(age().ok(22) === true).toBeTruthy()
+    expect(age().ok('22') === false).toBeTruthy()
+    expect(age().getTypeName() === 'Age').toBeTruthy()
+    expect(age().toString() === 'Age()').toBeTruthy()
+  })
+
+  it('should es6 inheritance', function() {
+    class Age extends Verifiable {
+      _check() { return null }
+      static displayName = 'Age'
+      constructor(rule?, options?) {
+        super(rule, options)
+        this.rule = null
+        this.options = null
+      }
+    }
+
+    const age = funcify(Age)
+    expect(age() instanceof Age).toBeTruthy() // true
+    expect(new Age() instanceof Age).toBeTruthy() // true
+    expect(constructify(age) === Age).toBeTruthy()
   })
 })

@@ -10,6 +10,15 @@ import { funcify } from './util/index'
 import Message from './reasons/Message'
 import checkEqual from './util/checkEqual'
 
+/**
+ * Checks the value on the contrary.
+ *
+ * ```javascript
+ * not('2').ok('2') === false
+ * not('2').ok('12') === true
+ * not(eq('2')).ok(2) === false
+ * ```
+ */
 export class Not extends Verifiable {
   _check(request: any) {
     const rlt = checkEqual(request, this.rule)

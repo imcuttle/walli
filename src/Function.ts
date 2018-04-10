@@ -8,6 +8,9 @@ import { funcify } from './util/index'
 import { isFunction } from 'lodash'
 import { TypeVerifiable } from './TypeVerifiable'
 
+/**
+ * Type Verifies: Checks isFunction
+ */
 export class Function extends TypeVerifiable {
   rule = isFunction
   options = {

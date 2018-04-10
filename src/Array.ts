@@ -12,7 +12,7 @@ import Type, { TypeItem } from './reasons/TypeReason'
 import checkEqual from "./util/checkEqual";
 
 /**
- * Checks whether the request belongs to array and observe the rule.
+ * Checks whether the request belongs array and observes the rule.
  * ```javascript
  * array('a').ok('a') === false // 'a' is not an array.
  * array('a').ok(['a']) === true

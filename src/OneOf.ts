@@ -11,6 +11,10 @@ import { funcify, toString } from './util/index'
 import checkEqual from './util/checkEqual'
 import ToEqualReason from "./reasons/Equal";
 
+/**
+ * Do the same work with [[Some]] which has different unlawful message.
+ *
+ */
 export class OneOf extends Verifiable {
   public rule: any[]
   constructor(rules: any[]) {

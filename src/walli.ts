@@ -40,6 +40,7 @@ export { CheckAble } from './Verifiable'
 
 // util
 import checkEqual from './util/checkEqual'
+import { single, double } from './util/quote'
 import createVerifiableClass from './util/createVerifiableClass'
 import {
   funcify,
@@ -51,13 +52,15 @@ import {
   inherits
 } from './util'
 export const util = {
+  single,
+  double,
   inherits,
   getDisplayName,
   isRequired,
   toString,
+  funcify,
   constructify,
   getTypeName,
   checkEqual,
-  funcify,
   createVerifiableClass
 }

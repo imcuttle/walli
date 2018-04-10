@@ -8,6 +8,9 @@ import { funcify } from './util/index'
 import { isNil } from 'lodash'
 import { TypeVerifiable } from './TypeVerifiable'
 
+/**
+ * Checks null or undefined
+ */
 export class Nil extends TypeVerifiable {
   rule = isNil
   options = {

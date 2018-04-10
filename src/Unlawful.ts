@@ -10,7 +10,7 @@ import HasMessage from './util/HasMessage'
 
 export class FunctionWithName extends Function {
   name: string
-  displayName: string
+  displayName?: string
 }
 
 export class Reason extends HasMessage {

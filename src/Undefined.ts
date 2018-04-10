@@ -8,6 +8,9 @@ import { funcify } from './util/index'
 import { isUndefined } from 'lodash'
 import { TypeVerifiable } from './TypeVerifiable'
 
+/**
+ * Checks undefined
+ */
 export class Undefined extends TypeVerifiable {
   rule = isUndefined
   options = {

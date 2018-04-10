@@ -40,11 +40,20 @@ function _quote(string, char = '"', reg = escapable, meta) {
     : char + string + char
 }
 
-
+/**
+ * Uses single quote to wrap string.
+ * @param string
+ * @return {string}
+ */
 export function single(string) {
   return _quote(string, '\'', singleEscapable, singleMeta)
 }
 
+/**
+ * Uses double quote to wrap string.
+ * @param string
+ * @return {string}
+ */
 export function double(string) {
   return _quote(string, '"', escapable, doubleMeta)
 }

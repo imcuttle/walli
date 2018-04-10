@@ -85,25 +85,37 @@
 					<a name="checkequal" class="tsd-anchor"></a>
 					<h3>check<wbr>Equal</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">check<wbr>Equal<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, expect<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, fallbackVerf<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_unlawful_.unlawfulnesslist.html" class="tsd-signature-type">UnlawfulnessList</a></li>
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Equal<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, expect<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_verifiable_.verifiable.html" class="tsd-signature-type">Verifiable</a>, fallbackVerf<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_unlawful_.unlawfulnesslist.html" class="tsd-signature-type">UnlawfulnessList</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/a852903/src/util/checkEqual.ts#L5">util/checkEqual.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/imcuttle/walli/blob/964c61f/src/util/checkEqual.ts#L17">util/checkEqual.ts:17</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<pre><code class="lang-javascript">checkEqual(<span class="hljs-string">'123'</span>, <span class="hljs-string">'123'</span>).ok === <span class="hljs-literal">true</span>
+checkEqual(<span class="hljs-string">'123'</span>, <span class="hljs-number">123</span>).ok === <span class="hljs-literal">false</span>
+checkEqual(<span class="hljs-string">'123'</span>, <span class="hljs-number">123</span>, eq).ok === <span class="hljs-literal">true</span>
+checkEqual(<span class="hljs-string">'123'</span>, string()).ok === <span class="hljs-literal">true</span>
+</code></pre>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>val: <span class="tsd-signature-type">any</span></h5>
 								</li>
 								<li>
-									<h5>expect: <span class="tsd-signature-type">any</span></h5>
+									<h5>expect: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_verifiable_.verifiable.html" class="tsd-signature-type">Verifiable</a></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fallbackVerf: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>funcified Verifiable (default: <code>be</code>)</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../classes/_unlawful_.unlawfulnesslist.html" class="tsd-signature-type">UnlawfulnessList</a></h4>

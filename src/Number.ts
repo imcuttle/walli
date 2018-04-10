@@ -7,6 +7,9 @@
 import { funcify } from './util/index'
 import { TypeVerifiable } from './TypeVerifiable'
 
+/**
+ * Checks Number (string or number)
+ */
 export class Number extends TypeVerifiable {
   rule = req => {
     return !isNaN(req)

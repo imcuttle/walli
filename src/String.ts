@@ -8,6 +8,9 @@ import { funcify } from './util/index'
 import { isString } from 'lodash'
 import { TypeVerifiable } from './TypeVerifiable'
 
+/**
+ * Checks string
+ */
 export class String extends TypeVerifiable {
   rule = isString
   options = {

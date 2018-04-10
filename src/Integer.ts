@@ -8,6 +8,9 @@ import { funcify } from './util/index'
 import { isInteger } from 'lodash'
 import { TypeVerifiable } from './TypeVerifiable'
 
+/**
+ * Checks integer
+ */
 export class Integer extends TypeVerifiable {
   rule = isInteger
   options = {

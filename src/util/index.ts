@@ -7,15 +7,26 @@
 import { find, isArray, camelCase, isPlainObject } from 'lodash'
 import Verifiable from '../Verifiable'
 import { single } from './quote'
+import { FunctionWithName } from '../Unlawful'
 
 const safeStringify = require('json-stringify-safe')
 
+/**
+ * Constructify(reverse of funcify) the function, see [[createVerifiableClass]].
+ * @param FuncConstructor
+ * @return {(rule?: Rule, options?: Options) => Result}
+ */
 export function constructify(func: any) {
   return func && func['__Walli_Constructor__']
     ? func['__Walli_Constructor__']
     : func
 }
 
+/**
+ * Funcify the constructor, see [[createVerifiableClass]].
+ * @param FuncConstructor
+ * @return {(rule?: Rule, options?: Options) => Result}
+ */
 export function funcify<Result = Verifiable, Rule = any, Options = any>(
   FuncConstructor
 ): (rule?: Rule, options?: Options) => Result {
@@ -72,26 +83,43 @@ export function inherits(Child, Super) {
       : ((__.prototype = Super.prototype), new __())
 }
 
-export function getDisplayName(data: any, { camel = false } = {}) {
-  if (typeof data.displayName === 'string') {
-    return data.displayName
+/**
+ * Gets display name from Function.
+ */
+export function getDisplayName(
+  func: FunctionWithName,
+  { camel = false } = {}
+): string {
+  if (typeof func.displayName === 'string') {
+    return func.displayName
   }
 
-  if (typeof data.name === 'string') {
-    return camel ? camelCase(data.name) : data.name
+  if (typeof func.name === 'string') {
+    return camel ? camelCase(func.name) : func.name
   }
   return 'unKnow'
 }
 
+/**
+ * Gets type's name from instance.
+ * @param ins
+ * @return {string}
+ */
 export function getTypeName(ins: any): string {
   let name = ins + ''
   if (ins && ins.constructor) {
     const found = find(rename, ([Method, name]) => Method === ins.constructor)
-    name = (found && found[1]) || getDisplayName(ins.constructor)
+    name = <string>(found && found[1]) || getDisplayName(ins.constructor)
   }
   return name
 }
 
+/**
+ * To pretty string from anything.
+ * @param rule
+ * @param {any} empty - the string placeholder when equals undefined
+ * @return {any}
+ */
 export function toString(rule, { empty = 'undefined' } = {}) {
   if (typeof rule === 'undefined') {
     return empty
@@ -115,6 +143,11 @@ export function toString(rule, { empty = 'undefined' } = {}) {
   return rule.toString() || ''
 }
 
+/**
+ * Checks rule is required
+ * @param rule
+ * @return {boolean}
+ */
 export function isRequired(rule) {
   if (rule instanceof Verifiable) {
     return rule.isRequired

@@ -8,6 +8,9 @@ import { funcify } from './util/index'
 import { isNull } from 'lodash'
 import { TypeVerifiable } from './TypeVerifiable'
 
+/**
+ * Checks null
+ */
 export class Null extends TypeVerifiable {
   rule = isNull
   options = {

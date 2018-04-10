@@ -7,6 +7,13 @@
 import Verifiable from './Verifiable'
 import { funcify, getTypeName } from './util/index'
 
+/**
+ * Type Verifies: Checks instance of rule
+ * ```javascript
+ * instanceOf(Function).ok(() => {}) === true
+ * instanceOf(Object).ok({}) === true
+ * ```
+ */
 export class InstanceOf extends Verifiable {
   rule: Function
 
