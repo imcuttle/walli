@@ -5,7 +5,7 @@
   "description": "A functional style validation library.",
   "author": "imcuttle",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "dist": "rimraf lib && tsc",
     "prepublishOnly": "npm run dist",
     "site": "rimraf _site && typedoc src/walli.ts --readme Readme.md --out _site/ --theme default",
