@@ -9,17 +9,26 @@ import {Reason, Unlawfulness, UnlawfulnessList} from './Unlawful'
 import { funcify, toArray } from './util/index'
 import Type, { TypeItem } from './reasons/TypeReason'
 import checkEqual from './util/checkEqual'
-import { isArray } from 'lodash'
+import { isArray, isPlainObject } from 'lodash'
 
 const Gobject = global.Object
 
 /**
- * Checks object's shape.
+ * Checks plain object's shape.
  *
  * ```javascript
+ * // value restriction
  * object('val').ok({ a: 'val', b: 'val' }) === true
  * object('val').ok({}) === true
  * object('val').ok({ a: 'xxx' }) === false
+ *
+ * // key and value restriction
+ * object(['val', 'key']).ok({ key: 'val' }) === true
+ * object(['val', 'key']).ok({ keys: 'val' }) === false
+ *
+ * // Without key and value restriction
+ * object().ok([]) === false
+ * object().ok(new Boolean(false)) === false
  * ```
  */
 export class Object_ extends Verifiable {
@@ -34,7 +43,7 @@ export class Object_ extends Verifiable {
   }
 
   protected _check(request: any) {
-    if (request === null || typeof request !== 'object') {
+    if (request === null || !isPlainObject(request)/*typeof request !== 'object'*/) {
       return new Unlawfulness(
         new Type(
           new TypeItem(Gobject, 'object'),

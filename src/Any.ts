@@ -11,7 +11,7 @@ import { funcify } from './util/index'
  * Anything is passed.
  *
  * ```javascript
- * any().ok('any') === true
+ * any.ok('any') === true
  * ```
  */
 export class Any extends Verifiable {

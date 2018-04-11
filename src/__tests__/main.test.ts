@@ -1,22 +1,29 @@
-import string from '../String'
-import be from '../Be'
-import equal from '../Equal'
-import number from '../Number'
-import oneOf from '../OneOf'
-import not from '../Not'
-import every from '../Every'
-import some from '../Some'
-import leq from '../LooseEqual'
-import _undefined from '../Undefined'
-import _null from '../Null'
-import nil from '../Nil'
-import instanceOf from '../InstanceOf'
-import object from '../Object'
+import {
+  string,
+  every,
+  eq,
+  leq,
+  be,
+  number,
+  oneOf,
+  equal,
+  Verifiable,
+  not,
+  array,
+  object,
+  objectOf,
+  instanceOf,
+  integer,
+  any,
+  custom,
+  boolean,
+  function_,
+  some, undefined_, null_, nil
+} from '../walli'
+import { util } from '../walli'
+const { funcify, constructify, createVerifiableClass, checkEqual } = util
 
 import { single, double } from '../util/quote'
-import Verifiable from '../Verifiable'
-import createVerifiableClass from '../util/createVerifiableClass'
-import { constructify } from '../util'
 
 describe('main test', function() {
   describe('util', function() {
@@ -30,24 +37,18 @@ describe('main test', function() {
   })
 
   it('should String', function() {
-    expect(string().check('asdas').ok).toBeTruthy()
+    expect(string.check('asdas').ok).toBeTruthy()
     expect(
-      string()
+      string
         .message('message')
         .message()
-        .check(null)
-        .toString()
+        .check(null).toString()
     ).toEqual('expected type: string, actual type: null.')
 
-    expect(
-      string()
-        .message('message')
-        .check(null)
-        .toString()
-    ).toEqual('message')
+    expect(string.message('message').check(null).toString()).toEqual('message')
     //
-    expect(string().ok(null)).toBeFalsy()
-    expect(string().ok('')).toBeTruthy()
+    expect(string.ok(null)).toBeFalsy()
+    expect(string.ok('')).toBeTruthy()
   })
 
   it('should ToBe', function() {
@@ -95,7 +96,7 @@ describe('main test', function() {
       "expected keys: [], the actual contains not allowed keys: ['a']."
     )
 
-    expect(equal(string()).check('asdas').ok).toBeTruthy()
+    expect(equal(string).check('asdas').ok).toBeTruthy()
   })
 
   it('should leq', function() {
@@ -107,7 +108,7 @@ describe('main test', function() {
 
   it('should equal shallow', function() {
     const a = equal({
-      a: string()
+      a: string
     })
     expect(
       a.ok({
@@ -122,18 +123,16 @@ describe('main test', function() {
     ).toBeFalsy()
 
     console.log(
-      a
-        .check({
-          a: 123
-        })
-        .toString()
+      a.check({
+        a: 123
+      }).toString()
     )
   })
 
   it('should equal deep', function() {
     const a = equal({
       a: {
-        'asd"asd\'xx': [string(), be('456'), 'xxx']
+        'asd"asd\'xx': [string, be('456'), 'xxx']
       }
     })
     expect(
@@ -162,9 +161,9 @@ describe('main test', function() {
   })
 
   it('should number', function() {
-    expect(number().check({}).ok).toBeFalsy()
-    expect(number().check('1').ok).toBeTruthy()
-    expect(number().check(232).ok).toBeTruthy()
+    expect(number.check({}).ok).toBeFalsy()
+    expect(number.check('1').ok).toBeTruthy()
+    expect(number.check(232).ok).toBeTruthy()
   })
 
   it('should oneOf', function() {
@@ -193,7 +192,7 @@ describe('main test', function() {
   })
 
   it('should every', function() {
-    const rule = every([number(), string()])
+    const rule = every([number, string])
 
     expect(rule.ok({})).toBeFalsy()
     expect(rule.toUnlawfulString({})).toBe(
@@ -209,34 +208,34 @@ describe('main test', function() {
   })
 
   it('should some', function() {
-    const rule = some([number(), string()])
+    const rule = some([number, string])
 
     expect(rule.ok({})).toBeFalsy()
     expect(rule.ok('12')).toBeTruthy()
     expect(rule.toUnlawfulString('12')).toBe('')
     expect(rule.toUnlawfulString(12)).toBe('')
-    expect(some([number(), 'abc']).toUnlawfulString('abc')).toBe('')
+    expect(some([number, 'abc']).toUnlawfulString('abc')).toBe('')
   })
 
   it('should undefined', function() {
-    expect(_undefined().ok()).toBeTruthy()
-    expect(_undefined().ok('')).toBeFalsy()
-    expect(_undefined().ok(null)).toBeFalsy()
-    expect(_undefined().ok(undefined)).toBeTruthy()
+    expect(undefined_.ok()).toBeTruthy()
+    expect(undefined_.ok('')).toBeFalsy()
+    expect(undefined_.ok(null)).toBeFalsy()
+    expect(undefined_.ok(undefined)).toBeTruthy()
   })
 
   it('should null', function() {
-    expect(_null().ok()).toBeFalsy()
-    expect(_null().ok('')).toBeFalsy()
-    expect(_null().ok(null)).toBeTruthy()
-    expect(_null().ok(undefined)).toBeFalsy()
+    expect(null_.ok()).toBeFalsy()
+    expect(null_.ok('')).toBeFalsy()
+    expect(null_.ok(null)).toBeTruthy()
+    expect(null_.ok(undefined)).toBeFalsy()
   })
 
   it('should null or undefined', function() {
-    expect(nil().ok()).toBeTruthy()
-    expect(nil().ok('')).toBeFalsy()
-    expect(nil().ok(null)).toBeTruthy()
-    expect(nil().ok(undefined)).toBeTruthy()
+    expect(nil.ok()).toBeTruthy()
+    expect(nil.ok('')).toBeFalsy()
+    expect(nil.ok(null)).toBeTruthy()
+    expect(nil.ok(undefined)).toBeTruthy()
   })
 
   it('should instanceOf', function() {
@@ -257,11 +256,11 @@ describe('main test', function() {
   })
 
   it('should object', function() {
-    expect(object().ok({})).toBeTruthy()
-    expect(object().ok('22')).toBeFalsy()
-    expect(object().ok([])).toBeTruthy()
+    expect(object.ok({})).toBeTruthy()
+    expect(object.ok('22')).toBeFalsy()
+    expect(object.ok([])).toBeFalsy()
 
-    const r = object([number(), string()])
+    const r = objectOf([number, string])
     expect(
       r.ok({
         a: '22',
@@ -313,7 +312,7 @@ describe('main test', function() {
   it('should createVerifiableClass', () => {
     const cls = createVerifiableClass({
       _check(req: any) {
-        return string().check(req)
+        return string.check(req)
       },
       getInitialRule() {
         return '222'
@@ -336,5 +335,4 @@ describe('main test', function() {
     constructify(cls).displayName = null
     expect(cls().toString()).toBe("verifiableClass('222')")
   })
-
 })

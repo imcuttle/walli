@@ -3,11 +3,11 @@
   "version": "0.0.5",
   "main": "lib/walli.js",
   "types": "lib/walli.d.ts",
-  "description": "A manageable validation library.",
+  "description": "A manageable and immutable validation library.",
   "author": "imcuttle",
   "scripts": {
     "test": "jest",
-    "dist": "rimraf lib && tsc",
+    "dist": "rimraf lib && tsc && cp {src,lib}/final.js",
     "prepublishOnly": "npm run dist",
     "site": "rimraf _site && typedoc src/walli.ts --readme Readme.md --out _site/ --theme default && touch _site/.nojekyll",
     "preversion": "npm test && npm run changelog",

@@ -35,6 +35,13 @@ export class Reason extends HasMessage {
     return ''
   }
 
+  public message(msg: null | string = null): Reason {
+    return <Reason>super.message(msg)
+  }
+  public clone(): Reason {
+    return new (<typeof Reason>this.constructor)(this.expect, this.actual)
+  }
+
   public toMessage() {
     return this.prefix + this.toHumanMessage() + this.suffix
   }
@@ -78,13 +85,13 @@ export class Unlawfulness {
     let prefix = pathsToString(this.paths)
     prefix = prefix ? prefix + ': ' : prefix
 
-    let process = function (list: string[]) {
+    let process = function(list: string[]) {
       return list
     }
 
-    return `${prefix}${process(this.reasons.map(reason => reason.toString())).join(
-      Array(prefix.length).join(' ') + '\n'
-    )}`
+    return `${prefix}${process(
+      this.reasons.map(reason => reason.toString())
+    ).join(Array(prefix.length).join(' ') + '\n')}`
   }
 }
 

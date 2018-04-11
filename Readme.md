@@ -5,7 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/walli.svg?style=flat-square)](https://www.npmjs.com/package/walli)
 [![NPM Downloads](https://img.shields.io/npm/dm/walli.svg?style=flat-square&maxAge=43200)](https://www.npmjs.com/package/walli)
 
-A manageable validation library.
+A manageable and immutable validation library.
 
 [Chinese](https://imcuttle.github.io/walli-born)
 
@@ -37,6 +37,7 @@ import {
   string,
   eq,
   oneOf,
+  arrayOf,
   array,
   integer,
   Verifiable
@@ -50,12 +51,12 @@ const person = createVerifiableClass({
   },
   _check(req) {
     return eq({
-      name: string(),
-      age: integer(),
+      name: string,
+      age: integer,
       gender: oneOf(['F', 'M']),
-      father: person().optional(),
-      mother: person().optional(),
-      children: array(person()).optional()
+      father: person().optional,
+      mother: person().optional,
+      children: arrayOf(person()).optional
     }).check(req)
   }
 })
@@ -87,31 +88,38 @@ And the document named [How to write a customized type](./docs/How-To-Write-Cust
 [More Detail](https://imcuttle.github.io/walli)
 
 ## Verifiable List
-### function_()
-### null_()
-### undefined_()
-### object(...)
-#### object(value)
-#### object([value, key])
-### array(value)
+
+### function_
+### null_
+### undefined_
+### primitive
+### object
+### array
+### any
+### nil
+- null or undefined
+### string
+### number
+### strictNumber
+### integer
+### any
+
+### objectOf(...)
+#### objectOf()
+#### objectOf(value)
+#### objectOf([value, key])
+### arrayOf(value)
 ### be(value)
 ### oneOf([a, b, c])
 ### equal(value)
 - Alias `eq`
 ### looseEqual(value)
 - Alias `leq`
-### any()
 ### not(value)
 ### every([a, b, c])
 ### some([a, b, c])
 ### custom((...requests) => string | null)
-### nil()
-- null or undefined
-### string()
-### number()
-### strictNumber()
 ### instanceOf(Type)
-### integer()
 
 ## Class List
 ### Verifiable
@@ -134,3 +142,5 @@ And the document named [How to write a customized type](./docs/How-To-Write-Cust
 ### constructify(Class)
 ### getTypeName(Type)
 ### createVerifiableClass(entities, options)
+### createFinalVerifiable(...)
+

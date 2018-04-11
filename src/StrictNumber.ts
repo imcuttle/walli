@@ -12,8 +12,8 @@ import { TypeVerifiable } from './TypeVerifiable'
  * Checks number (excludes string)
  *
  * ```javascript
- * strictNumber().ok('123') === false
- * strictNumber().ok(123) === true
+ * strictnumber.ok('123') === false
+ * strictnumber.ok(123) === true
  * ```
  */
 export class StrictNumber extends TypeVerifiable {

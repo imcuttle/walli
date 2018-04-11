@@ -4,16 +4,17 @@
  * @date 2018/4/7
  * @description
  */
-import { funcify } from './util/index'
+import { funcify, toString } from './util/index'
 import { TypeVerifiable } from './TypeVerifiable'
 
-const set = new Set([
+const arr = [
   'undefined',
   'string',
   'number',
   'boolean',
   'symbol'
-])
+]
+const set = new Set(arr)
 
 /**
  * Checks primitive ([null, undefined, string, number, boolean, symbol])
@@ -25,7 +26,7 @@ export class Primitive extends TypeVerifiable {
   }
   options = {
     type: Primitive,
-    typeName: 'Primitive'
+    typeName: toString(arr)
   }
 }
 

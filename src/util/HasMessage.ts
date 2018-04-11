@@ -12,6 +12,11 @@ export default class HasMessage {
     return typeof this.msg === 'string'
   }
 
+  private _setMessage(msg) {
+    this.msg = msg
+    return this
+  }
+
   /**
    * set message
    *
@@ -46,10 +51,16 @@ export default class HasMessage {
    * ).toBe("b['d']: errr")
    * ```
    * @param {string | null} msg
-   * @return {this}
+   * @return {HasMessage}
    */
   public message(msg: string | null = null) {
-    this.msg = msg
-    return this
+    return this.clone()._setMessage(msg)
+  }
+
+  /**
+   * @return {HasMessage}
+   */
+  public clone() {
+    return new (<typeof HasMessage>this.constructor)()
   }
 }

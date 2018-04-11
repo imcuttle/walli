@@ -15,9 +15,12 @@ import {
   custom,
   boolean,
   function_,
-  some
+  some,
+  arrayOf,
+  primitive,
+  objectOf,
+  util
 } from '../walli'
-import { util } from '../walli'
 const { funcify, constructify, createVerifiableClass, checkEqual } = util
 
 const pkg = require('../../package.json')
@@ -27,10 +30,10 @@ Version.prototype = Object.create(new Verifiable())
 Version.prototype.constructor = Version
 Version.prototype._check = function _check(request: any) {
   return every([
-    string(),
+    string,
     custom(function(version) {
       const arr = version.split('.')
-      if (arr.length === 3 && array(number()).ok(arr)) {
+      if (arr.length === 3 && arrayOf(number).ok(arr)) {
         return null
       }
       return 'The version should shape of 1.0.0, but ' + version
@@ -43,13 +46,13 @@ class VersionRange extends Verifiable {
   _check(req: any) {
     return some([
       every([
-        string(),
+        string,
         custom(function(version) {
           const arr = version.split('.')
           if (
             arr.length === 3 &&
             /^[\^\*~]/.test(arr[0]) &&
-            array(number()).ok(arr.slice(1))
+            arrayOf(number).ok(arr.slice(1))
           ) {
             return null
           }
@@ -64,15 +67,15 @@ const vRange = funcify(VersionRange)
 
 describe('package', function() {
   const rule = leq({
-    name: string(),
+    name: string,
     version: version(), //.message('vvv'),
-    main: string().optional(),
-    description: string().optional(),
+    main: string.optional,
+    description: string.optional,
     scripts: {
       test: be('jest')
     },
-    dependencies: object([vRange(), number()]),
-    keywords: array(string())
+    dependencies: objectOf([vRange(), number]),
+    keywords: arrayOf(string)
   })
 
   it('package spec', function() {
@@ -98,7 +101,7 @@ describe('package', function() {
     expect(
       rule
         .clone()
-        .set('version', any())
+        .set('version', any)
         .toUnlawfulString({
           ...pkg,
           dependencies: {
@@ -142,7 +145,7 @@ describe('package', function() {
           rule
             .get('version')
             .clone()
-            .optional()
+            .optional
         )
         .toUnlawfulString(val)
     ).toEqual(
@@ -157,9 +160,9 @@ describe('package', function() {
       _check(req: any) {
         return leq({
           type: oneOf(['file', 'git', 'npm']),
-          url: string(),
-          checkout: string().optional(),
-          version: string().optional()
+          url: string,
+          checkout: string.optional,
+          version: string.optional
         }).check(req)
       },
       getDisplayName() {
@@ -169,35 +172,35 @@ describe('package', function() {
 
     const source = createVerifiableClass({
       _check(req: any) {
-        return oneOf([strictSource(), string()]).check(req)
+        return oneOf([strictSource(), string]).check(req)
       },
       getDisplayName() {
         return 'source'
       }
     })
 
-    // console.log(constructify(source).displayName, source().toString())
+    // console.log(constructify(source).displayName, source().tostring)
 
     const rc = leq({
-      source: source().optional(),
-      cacheDir: oneOf([boolean(), string()]).optional(),
-      alias: object(source()).optional(),
-      extends: oneOf([string(), array(string())]).optional(),
-      output: string().optional(),
-      plugins: array(eq([function_(), any()])).optional(),
+      source: source().optional,
+      cacheDir: oneOf([boolean, string]).optional,
+      alias: objectOf(source()).optional,
+      extends: oneOf([string, arrayOf(string)]).optional,
+      output: string.optional,
+      plugins: arrayOf(eq([function_, any])).optional,
       pull: eq({
         npmClient: oneOf(['yarn', 'npm']),
-        git: oneOf(['clone', 'download']).optional()
-      }).optional(),
-      storePrompts: boolean()
+        git: oneOf(['clone', 'download']).optional
+      }).optional,
+      storePrompts: boolean
     })
 
     const edam = rc.assign(
       leq({
-        name: string().optional(),
-        updateNotify: boolean().optional(),
-        yes: boolean().optional(),
-        silent: boolean().optional()
+        name: string.optional,
+        updateNotify: boolean.optional,
+        yes: boolean.optional,
+        silent: boolean.optional
       })
     )
 
@@ -229,34 +232,35 @@ describe('package', function() {
 
   it('should example', function() {
     expect(
-      oneOf(['123', string()]).getRuleString() === "['123', string()]"
-    ).toBeTruthy()
+      oneOf(['123', string]).getRuleString()
+    ).toBe("['123', string]")
 
     expect(
       eq({ a: 'a' })
         .set('a', 'bbb')
         .ok({ a: 'bbb' }) === true
     ).toBeTruthy()
-    expect(
-      eq({ a: 'a' })
-        .set(void 0, 'bbb')
-        .ok('bbb') === true
-    ).toBeTruthy()
 
-    expect(eq({ a: 'a' }).get('a') === 'a').toBeTruthy()
-    expect(eq({ a: 'a' }).ok(eq({ a: 'a' }).get()) === true).toBeTruthy()
+    // expect(
+    //   eq({ a: 'a' })
+    //     .set(void 0, 'bbb')
+    //     .ok('bbb') === true
+    // ).toBeTruthy()
+    //
+    // expect(eq({ a: 'a' }).get('a') === 'a').toBeTruthy()
+    // expect(eq({ a: 'a' }).ok(eq({ a: 'a' }).get()) === true).toBeTruthy()
   })
 
   it('should example2', function() {
     expect(checkEqual('123', '123').ok === true).toBeTruthy()
     expect(checkEqual('123', 123).ok === true).toBeFalsy()
     expect(checkEqual('123', '1234').ok === false).toBeTruthy()
-    expect(checkEqual('123', string()).ok === true).toBeTruthy()
+    expect(checkEqual('123', string).ok === true).toBeTruthy()
     expect(checkEqual('123', 123, any).ok === true).toBeTruthy()
 
     const age = createVerifiableClass({
       _check(req) {
-        return integer().check(req)
+        return integer.check(req)
       },
       getDisplayName() {
         return 'Age'
@@ -300,6 +304,34 @@ describe('package', function() {
     })
 
     expect(tenCheck.ok([1, 2]) === false).toBeTruthy()
-    expect(tenCheck.toUnlawfulString([1, 2]) === 'reqA + reqB should be equals 10.').toBeTruthy()
+    expect(
+      tenCheck.toUnlawfulString([1, 2]) === 'reqA + reqB should be equals 10.'
+    ).toBeTruthy()
+  })
+
+  it('should final', function() {
+    expect(primitive.ok('2')).toBeTruthy()
+
+    expect(primitive.message('sds').toUnlawfulString([])).toBe('sds')
+
+    expect(primitive.toUnlawfulString([])).toBe(
+      "expected type: ['undefined', 'string', 'number', 'boolean', 'symbol'], actual type: array."
+    )
+
+    expect(array.ok([1, 2])).toBeTruthy()
+    expect(object.ok([1, 2])).toBeFalsy()
+    expect(object.ok(new String('22'))).toBeFalsy()
+    expect(object.ok(new Boolean(false))).toBeFalsy()
+
+    expect(object.ok({ a: 2 })).toBeTruthy()
+    expect(object.ok(new Date())).toBeFalsy()
+
+    expect(object.ok({})).toBeTruthy()
+  })
+
+  it('should final using in leq', () => {
+    leq({
+      name: string
+    })
   })
 })

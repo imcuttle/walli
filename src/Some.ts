@@ -13,9 +13,9 @@ import { UnlawfulnessList } from './Unlawful'
  * The another way of [[Every]].
  *
  * ```javascript
- * some([number(), 'not number']).ok(123) === true
- * some([number(), 'not number']).ok('not number') === true
- * some([number(), 'not number']).ok('number') === false
+ * some([number, 'not number']).ok(123) === true
+ * some([number, 'not number']).ok('not number') === true
+ * some([number, 'not number']).ok('number') === false
  * ```
  */
 export class Some extends Verifiable {

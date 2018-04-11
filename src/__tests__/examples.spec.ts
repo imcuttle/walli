@@ -1,11 +1,8 @@
-import {
-  string,
-  eq,
-  oneOf,
-  array,
-  integer,
-} from '../walli'
+import { string, eq, oneOf, array, arrayOf, integer } from '../walli'
 import { util } from '../walli'
+import createFinalVerifiable from '../util/createFinalVerifiable'
+import Verifiable from '../Verifiable'
+import { funcify } from '../util'
 const { createVerifiableClass } = util
 
 describe('examples', function() {
@@ -25,18 +22,53 @@ describe('examples', function() {
       },
       _check(req) {
         return eq({
-          name: string(),
-          age: integer(),
+          name: string,
+          age: integer,
           gender: oneOf(['F', 'M']),
-          father: person().optional(),
-          mother: person().optional(),
-          children: array(person()).optional()
+          father: person().optional,
+          mother: person().optional,
+          children: arrayOf(person()).optional
         }).check(req)
       }
     })
 
     expect(
       person().toUnlawfulString({
+        name: 'cy',
+        age: 19,
+        gender: 'F',
+        father: {
+          name: 'cyy',
+          age: 49,
+          gender: 'X'
+        }
+      })
+    ).toBe("father['gender']: expected: oneOf(['F', 'M']), actual: 'X'.")
+
+    const fperson = createFinalVerifiable(person)
+    expect(
+      fperson.toUnlawfulString({
+        name: 'cy',
+        age: 19,
+        gender: 'F',
+        father: {
+          name: 'cyy',
+          age: 49,
+          gender: 'X'
+        }
+      })
+    ).toBe("father['gender']: expected: oneOf(['F', 'M']), actual: 'X'.")
+
+    // Or using es6 syntax
+    class ES6Person extends Verifiable {
+      static displayName = 'person'
+      _check(req) {
+        return person().check(req)
+      }
+    }
+
+    expect(
+      createFinalVerifiable(ES6Person).toUnlawfulString({
         name: 'cy',
         age: 19,
         gender: 'F',

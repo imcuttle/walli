@@ -24,7 +24,7 @@ export type ES5Entity = {
  * ```javascript
  * const age = createVerifiableClass({
  *   _check(req) {
- *     return integer()._check(req)
+ *     return integer._check(req)
  *   },
  *   getDisplayName() {
  *     return 'Age'
@@ -41,7 +41,7 @@ export type ES5Entity = {
  * // es6 inheritance
  * class Age extends Verifiable {
  *    _check() {
- *      return integer()._check(req)
+ *      return integer._check(req)
  *    }
  *    static displayName = 'Age'
  *    constructor(rule, options) {

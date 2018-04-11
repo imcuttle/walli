@@ -46,15 +46,16 @@ export default class Verifiable extends HasMessage {
    * ```
    * @param {"../index".PropertyPath} paths
    * @param val
-   * @return {any | undefined}
+   * @return {Verifiable}
    */
   set(paths?: PropertyPath, val?: any) {
+    const clone = this.clone()
     if (paths == null) {
-      this.rule = val
+      clone.rule = val
     } else {
-      set(this.rule, paths, val)
+      set(clone.rule, paths, val)
     }
-    return this
+    return clone
   }
 
   /**
@@ -77,25 +78,22 @@ export default class Verifiable extends HasMessage {
   }
 
   /**
-   * clone the instance shallowly.
-   * @return {Verifiable}
-   */
-  public clone() {
-    return funcify<Verifiable>(this.constructor)(this.rule, this.options)
-  }
-
-  /**
    * The verifiable instance is required.
    * @type {boolean}
    */
   public isRequired: boolean = true
+
+  private _setRequired(req: boolean) {
+    this.isRequired = req
+    return this
+  }
+
   /**
    * Set the verifiable rule to be required. please see [[required]].
-   * @return {this}
+   * @return {Verifiable}
    */
-  public required() {
-    this.isRequired = true
-    return this
+  public get required() {
+    return this.clone()._setRequired(true)
   }
 
   /**
@@ -103,18 +101,28 @@ export default class Verifiable extends HasMessage {
    *
    * ```javascript
    * const r = eq({
-   *  a: string().optional(),
-   *  b: string() // .required()  by default
+   *  a: string.optional,
+   *  b: string // .required  by default
    * })
    *
    * r.ok({ b: 'abc' }) === true
    * r.ok({ a: 'abc' }) === false
    * ```
-   * @return {this}
+   * @return {Verifiable}
    */
-  public optional() {
-    this.isRequired = false
-    return this
+  public get optional() {
+    return this.clone()._setRequired(false)
+  }
+
+  public message(msg: null | string = null): Verifiable {
+    return <Verifiable>super.message(msg)
+  }
+  /**
+   * Clones this instance
+   * @return {Verifiable}
+   */
+  public clone() {
+    return new (<typeof Verifiable>this.constructor)(this.rule, this.options)
   }
 
   /**
@@ -183,7 +191,7 @@ export default class Verifiable extends HasMessage {
   /**
    * Gets the type name
    * ```javascript
-   * oneOf(['123', string()]).getTypeName() === "oneOf"
+   * oneOf(['123', string]).getTypeName() === "oneOf"
    * ```
    * @return {string}
    */
@@ -194,7 +202,7 @@ export default class Verifiable extends HasMessage {
   /**
    * Gets the rule string
    * ```javascript
-   * oneOf(['123', string()]).getRuleString() === "['123', string()]"
+   * oneOf(['123', string]).getRuleString() === "['123', string]"
    * ```
    * @return {string}
    */
@@ -205,11 +213,11 @@ export default class Verifiable extends HasMessage {
   /**
    * Gets the verifiable instance string
    * ```javascript
-   * oneOf(['123', string()]).getRuleString() === "oneOf(['123', string()])"
+   * oneOf(['123', string]).getRuleString() === "oneOf(['123', string])"
    * ```
    * @return {string}
    */
-  toString() {
+  public toString() {
     let name = this.getTypeName()
     return `${name}(${this.getRuleString()})`
   }

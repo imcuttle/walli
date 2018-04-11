@@ -22,6 +22,10 @@ export function constructify(func: any) {
     : func
 }
 
+function isFuncified(Func) {
+  return !!Func['__Walli_Constructor__']
+}
+
 /**
  * Funcify the constructor, see [[createVerifiableClass]].
  * @param FuncConstructor
@@ -30,6 +34,10 @@ export function constructify(func: any) {
 export function funcify<Result = Verifiable, Rule = any, Options = any>(
   FuncConstructor
 ): (rule?: Rule, options?: Options) => Result {
+  if (isFuncified(FuncConstructor)) {
+    return FuncConstructor
+  }
+
   FuncConstructor = constructify(FuncConstructor)
   function Funcify(...args): Result {
     if (!(this instanceof FuncConstructor)) {

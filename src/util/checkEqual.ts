@@ -7,7 +7,7 @@ import Verifiable from '../Verifiable'
  * checkEqual('123', '123').ok === true
  * checkEqual('123', 123).ok === false
  * checkEqual('123', 123, eq).ok === true
- * checkEqual('123', string()).ok === true
+ * checkEqual('123', string).ok === true
  * ```
  * @param val
  * @param expect
@@ -25,6 +25,10 @@ export default function checkEqual(
 
   if (expect instanceof Verifiable) {
     return expect.check(val)
+  }
+
+  if (fallbackVerf instanceof Verifiable) {
+    return fallbackVerf.check(val)
   }
   return fallbackVerf(expect).check(val)
 }
