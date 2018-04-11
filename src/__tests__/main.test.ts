@@ -335,4 +335,15 @@ describe('main test', function() {
     constructify(cls).displayName = null
     expect(cls().toString()).toBe("verifiableClass('222')")
   })
+
+  it('should immutable', function () {
+    expect(string.message('asdas')).not.toBe(string)
+    expect(number.optional).not.toBe(number)
+    expect(number.required).not.toBe(number)
+    const l = leq({ '2': 'aaa' })
+    expect(l.set('2', 'ss')).not.toBe(l)
+
+    expect(l.assign({ '2': 'xxxx' })).not.toBe(l)
+    expect(l.merge({ 1: 'abc' })).not.toBe(l)
+  });
 })
