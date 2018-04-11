@@ -56,6 +56,30 @@ describe('main test', function() {
     expect(be('123').check('123').ok).toBeTruthy()
   })
 
+  it('should equal message', function() {
+    const r = equal({
+      a: 2,
+      b: {
+        c: '2',
+        d: be('d').message('errr')
+      },
+      c: be('xxxx').message('error .c')
+    }).message('error equal')
+
+    expect(r.toUnlawfulString({ a: 2, x: '22', b: { c: '2', d: 'd' } })).toBe(
+      'error equal'
+    )
+    expect(r.toUnlawfulString({ a: 2, c: 'xxxx', b: { c: '2', d: 'd' } })).toBe(
+      ''
+    )
+    expect(r.toUnlawfulString({ a: 2, c: 'xxxw', b: { c: '2', d: 'd' } })).toBe(
+      'c: error .c'
+    )
+    expect(
+      r.toUnlawfulString({ a: 2, c: 'xxxx', b: { c: '2', d: 'dd' } })
+    ).toBe("b['d']: errr")
+  })
+
   it('should toEqual', function() {
     expect(equal({}).check({}).ok).toBeTruthy()
     expect(equal(1).check('1').ok).toBeFalsy()
@@ -312,4 +336,5 @@ describe('main test', function() {
     constructify(cls).displayName = null
     expect(cls().toString()).toBe("verifiableClass('222')")
   })
+
 })

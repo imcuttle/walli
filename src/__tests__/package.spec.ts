@@ -271,7 +271,9 @@ describe('package', function() {
 
   it('should es6 inheritance', function() {
     class Age extends Verifiable {
-      _check() { return null }
+      _check() {
+        return null
+      }
       static displayName = 'Age'
       constructor(rule?, options?) {
         super(rule, options)
@@ -284,5 +286,20 @@ describe('package', function() {
     expect(age() instanceof Age).toBeTruthy() // true
     expect(new Age() instanceof Age).toBeTruthy() // true
     expect(constructify(age) === Age).toBeTruthy()
+  })
+
+  it('should custom demo', function() {
+    const tenCheck = custom(function([reqA, reqB]) {
+      // Passed
+      if (reqA + reqB === 10) {
+        return null
+      }
+      // Unlawful
+      // Allows returning string, Unlawfulness, Reason or UnlawfulnessList
+      return 'reqA + reqB should be equals 10.'
+    })
+
+    expect(tenCheck.ok([1, 2]) === false).toBeTruthy()
+    expect(tenCheck.toUnlawfulString([1, 2]) === 'reqA + reqB should be equals 10.').toBeTruthy()
   })
 })

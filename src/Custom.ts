@@ -27,8 +27,8 @@ import { funcify } from './util/index'
 export class Custom extends Verifiable {
   public rule: (...args) => CheckAble
 
-  protected _check(...requests: any[]) {
-    return this.rule.apply(null, requests)
+  protected _check(req: any) {
+    return this.rule(req)
   }
 }
 

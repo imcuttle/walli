@@ -31,17 +31,17 @@ export function funcify<Result = Verifiable, Rule = any, Options = any>(
   FuncConstructor
 ): (rule?: Rule, options?: Options) => Result {
   FuncConstructor = constructify(FuncConstructor)
-  const funcifyCons = function(...args): Result {
+  function Funcify(...args): Result {
     if (!(this instanceof FuncConstructor)) {
       return new FuncConstructor(...args)
     }
 
     FuncConstructor.apply(this, args)
   }
-  inherits(funcifyCons, FuncConstructor)
-  funcifyCons['__Walli_Constructor__'] = FuncConstructor
+  inherits(Funcify, FuncConstructor)
+  Funcify['__Walli_Constructor__'] = FuncConstructor
 
-  return funcifyCons
+  return Funcify
 }
 
 export function toArray<T>(item): T[] {

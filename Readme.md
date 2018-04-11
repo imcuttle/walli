@@ -5,8 +5,14 @@
 [![NPM version](https://img.shields.io/npm/v/walli.svg?style=flat-square)](https://www.npmjs.com/package/walli)
 [![NPM Downloads](https://img.shields.io/npm/dm/walli.svg?style=flat-square&maxAge=43200)](https://www.npmjs.com/package/walli)
 
-A functional style validation library.
+A manageable validation library.
 
+[Chinese](https://imcuttle.github.io/walli-born)
+
+## Installation
+```
+npm install walli --save
+```
 
 ## [Example](./src/__tests__/examples.spec.ts)
 
@@ -31,9 +37,10 @@ import {
   oneOf,
   array,
   integer,
-} from '../walli'
-import { util } from '../walli'
-const { createVerifiableClass } = util
+  Verifiable
+} from 'walli'
+import { util } from 'walli'
+const { funcify, createVerifiableClass } = util
 
 const person = createVerifiableClass({
   getDisplayName() {
@@ -52,12 +59,26 @@ const person = createVerifiableClass({
 })
 
 person().ok({
-  // ...
-})
+  name: 'cy',
+  age: 22,
+  gender: 'F'
+}) === true
 person().toUnlawfulString({
   // ...
 })
+
+
+// Or using es6 syntax
+class Person extends Verifiable {
+  static displayName = 'person'
+  _check(req) {
+     // same code here
+  }
+}
+const es6Person = funcify(Person)
 ```
+
+And the document named [How to write a customized type](./docs/How-To-Write-Customized-Type.md) would give you more help.
 
 ## [Exported API](./src/walli.ts)
 
