@@ -6,10 +6,10 @@
  */
 
 export default class HasMessage {
-  public msg: string | null = null
+  public msg: string | null | Function = null
 
   public hasMessage() {
-    return typeof this.msg === 'string'
+    return typeof this.msg === 'string' || typeof this.msg === 'function'
   }
 
   private _setMessage(msg) {
@@ -34,7 +34,8 @@ export default class HasMessage {
    *     c: '2',
    *     d: be('d').message('errr')
    *   },
-   *   c: be('xxxx').message('error .c')
+   *   // placeholder: `:expected:` `:actual:`
+   *   c: be('xxxx').message(':expected: :actual: error .c')
    * }).message('error equal')
    *
    * expect(r.toUnlawfulString({ a: 2, x: '22', b: { c: '2', d: 'd' } })).toBe(
@@ -44,7 +45,7 @@ export default class HasMessage {
    *   ''
    * )
    * expect(r.toUnlawfulString({ a: 2, c: 'xxxw', b: { c: '2', d: 'd' } })).toBe(
-   * 'c: error .c'
+   *   "c: '2' 'xxxw' error .c"
    * )
    * expect(
    *   r.toUnlawfulString({ a: 2, c: 'xxxx', b: { c: '2', d: 'dd' } })
@@ -53,7 +54,7 @@ export default class HasMessage {
    * @param {string | null} msg
    * @return {HasMessage}
    */
-  public message(msg: string | null = null) {
+  public message(msg: string | null | Function = null) {
     return this.clone()._setMessage(msg)
   }
 

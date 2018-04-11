@@ -10,8 +10,6 @@ import { toString } from '../util'
 
 export default class ToEqualReason extends Reason {
   toHumanMessage() {
-    return `expected: ${toString(this.expect, {
-      empty: 'undefined'
-    })}, actual: ${toString(this.actual, { empty: 'undefined' })}.`
+    return `expected: :expected:, actual: :actual:.`
   }
 }

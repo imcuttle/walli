@@ -140,13 +140,7 @@ describe('package', function() {
     expect(
       rule
         .clone()
-        .set(
-          'version',
-          rule
-            .get('version')
-            .clone()
-            .optional
-        )
+        .set('version', rule.get('version').clone().optional)
         .toUnlawfulString(val)
     ).toEqual(
       "dependencies['json-stringify-safe']: KEY expected type: number, actual type: string.\n" +
@@ -231,9 +225,7 @@ describe('package', function() {
   })
 
   it('should example', function() {
-    expect(
-      oneOf(['123', string]).getRuleString()
-    ).toBe("['123', string]")
+    expect(oneOf(['123', string]).getRuleString()).toBe("['123', string]")
 
     expect(
       eq({ a: 'a' })
@@ -333,5 +325,19 @@ describe('package', function() {
     leq({
       name: string
     })
+  })
+
+  it('should dynamic message', function() {
+    expect(string.message(':expected::actual:').toUnlawfulString(2222)).toBe(
+      'stringnumber'
+    )
+
+    expect(
+      string
+        .message((expect, actual) => {
+          return expect + '::' + actual
+        })
+        .toUnlawfulString(2222)
+    ).toBe('[object Object]::[object Object]')
   })
 })

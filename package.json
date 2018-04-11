@@ -20,7 +20,10 @@
   "keywords": [
     "walli",
     "validation",
-    "valid"
+    "valid",
+    "prop-types",
+    "types",
+    "type-check"
   ],
   "repository": "imcuttle/walli",
   "jest": {

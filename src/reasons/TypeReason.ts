@@ -26,7 +26,15 @@ export default class TypeReason extends Reason {
   public expect: TypeItem
   public actual: TypeItem
 
+  toExpectedString() {
+    return this.expect.getDisplayName()
+  }
+
+  toActualString() {
+    return this.actual.getDisplayName()
+  }
+
   toHumanMessage() {
-    return `expected type: ${this.expect.getDisplayName()}, actual type: ${this.actual.getDisplayName()}.`
+    return `expected type: :expected:, actual type: :actual:.`
   }
 }

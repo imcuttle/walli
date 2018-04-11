@@ -4,7 +4,7 @@
  * @date 2018/4/8
  * @description
  */
-import { toArray } from './util/index'
+import { toArray, toString } from './util/index'
 import { single } from './util/quote'
 import HasMessage from './util/HasMessage'
 
@@ -35,20 +35,34 @@ export class Reason extends HasMessage {
     return ''
   }
 
-  public message(msg: null | string = null): Reason {
+  public message(msg: null | string | Function = null): Reason {
     return <Reason>super.message(msg)
   }
   public clone(): Reason {
     return new (<typeof Reason>this.constructor)(this.expect, this.actual)
   }
 
-  public toMessage() {
-    return this.prefix + this.toHumanMessage() + this.suffix
+  public toExpectedString() {
+    return toString(this.expect, { empty: 'undefined' })
+  }
+
+  public toActualString() {
+    return toString(this.actual, { empty: 'undefined' })
   }
 
   // human-friendly message
   public toString(): string {
-    return !this.hasMessage() ? this.toMessage() : this.msg
+    let string = !this.hasMessage() ? this.toHumanMessage() : this.msg
+
+    if (typeof string === 'function') {
+      string = <string>string(this.expect, this.actual)
+    }
+
+    string = this.prefix + string + this.suffix
+
+    return string
+      .replace(/:expected:/g, this.toExpectedString())
+      .replace(/:actual:/g, this.toActualString())
   }
 }
 

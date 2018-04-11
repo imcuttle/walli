@@ -114,7 +114,7 @@ export default class Verifiable extends HasMessage {
     return this.clone()._setRequired(false)
   }
 
-  public message(msg: null | string = null): Verifiable {
+  public message(msg: null | string | Function = null): Verifiable {
     return <Verifiable>super.message(msg)
   }
   /**

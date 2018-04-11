@@ -9,6 +9,7 @@ import { Reason, Unlawfulness, UnlawfulnessList } from './Unlawful'
 import { funcify } from './util/index'
 import Message from './reasons/Message'
 import checkEqual from './util/checkEqual'
+import ToEqualReason from "./reasons/Equal";
 
 /**
  * Checks the value on the contrary.
@@ -26,9 +27,9 @@ export class Not extends Verifiable {
       return null
     }
 
-    return new Unlawfulness(
-      new Message(`(Not) expected: ${this.rule}, actual: ${request}.`)
-    )
+    const reason = new ToEqualReason(this.rule, request)
+    reason.setPrefix('(Not) ' + reason.prefix)
+    return reason
   }
 }
 
