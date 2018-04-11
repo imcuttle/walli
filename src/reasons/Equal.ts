@@ -1,5 +1,5 @@
-import { Reason } from '../Unlawful'
 import { toString } from '../util'
+import Reason from './Reason'
 
 /**
  * @file ToBe

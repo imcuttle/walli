@@ -5,7 +5,7 @@
  * @description
  */
 import Verifiable from './Verifiable'
-import { Reason, Unlawfulness, UnlawfulnessList } from './Unlawful'
+import { Unlawfulness, UnlawfulnessList } from './Unlawful'
 import { funcify } from './util/index'
 import ToEqual from './reasons/Equal'
 

@@ -4,8 +4,8 @@
  * @date 2018/4/8
  * @description
  */
-import { Reason } from '../Unlawful'
 import { getTypeName } from '../util'
+import Reason from './Reason'
 
 export class TypeItem {
   static fromInstance(ins: any) {

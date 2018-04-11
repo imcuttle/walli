@@ -9,7 +9,7 @@ import { Unlawfulness, UnlawfulnessList } from './Unlawful'
 import Type, { TypeItem } from './reasons/TypeReason'
 import { funcify, toString } from './util/index'
 import checkEqual from './util/checkEqual'
-import ToEqualReason from "./reasons/Equal";
+import ToEqualReason from './reasons/Equal'
 
 /**
  * Do the same work with [[Some]] which has different unlawful message.

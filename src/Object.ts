@@ -5,7 +5,7 @@
  * @description
  */
 import Verifiable from './Verifiable'
-import {Reason, Unlawfulness, UnlawfulnessList} from './Unlawful'
+import { Unlawfulness, UnlawfulnessList } from './Unlawful'
 import { funcify, toArray } from './util/index'
 import Type, { TypeItem } from './reasons/TypeReason'
 import checkEqual from './util/checkEqual'

@@ -5,7 +5,7 @@
  * @description
  */
 import Verifiable from './Verifiable'
-import { Reason, Unlawfulness, UnlawfulnessList } from './Unlawful'
+import { UnlawfulnessList } from './Unlawful'
 import { funcify } from './util/index'
 import { isArray } from 'lodash'
 import Type, { TypeItem } from './reasons/TypeReason'

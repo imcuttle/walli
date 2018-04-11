@@ -6,10 +6,10 @@
  */
 import {
   FunctionWithName,
-  Reason,
   Unlawfulness,
   UnlawfulnessList
 } from './Unlawful'
+import Reason from './reasons/Reason'
 import Message from './reasons/Message'
 import {
   camelCase,
