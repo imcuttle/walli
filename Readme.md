@@ -43,7 +43,7 @@ import {
   Verifiable
 } from 'walli'
 import { util } from 'walli'
-const { funcify, createVerifiableClass } = util
+const { funcify, createVerifiableClass, createFinalVerifiable } = util
 
 const person = createVerifiableClass({
   getDisplayName() {
@@ -69,7 +69,11 @@ person().ok({
 person().toUnlawfulString({
   // ...
 })
-
+// creates final verifiable instance like string / null_
+const fperson = createFinalVerifiable(person)
+fperson.ok({
+  // ...
+})
 
 // Or using es6 syntax
 class Person extends Verifiable {
