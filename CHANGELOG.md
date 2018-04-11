@@ -1,3 +1,13 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/imcuttle/walli/compare/v0.0.5...v1.0.0) (2018-04-11)
+
+
+### Performance Improvements
+
+* supports final verifiable instance && to be immutable. ([57538a4](https://github.com/imcuttle/walli/commit/57538a4))
+
+
+
 <a name="0.0.5"></a>
 ## [0.0.5](https://github.com/imcuttle/walli/compare/v0.0.4...v0.0.5) (2018-04-10)
 
