@@ -7,63 +7,11 @@
 import { toArray, toString } from './util/index'
 import { single } from './util/quote'
 import HasMessage from './util/HasMessage'
+import Reason from "./reasons/Reason";
 
 export class FunctionWithName extends Function {
   name: string
   displayName?: string
-}
-
-export class Reason extends HasMessage {
-  constructor(public expect?: any, public actual?: any) {
-    super()
-    this.expect = expect
-    this.actual = actual
-  }
-
-  public prefix: string = ''
-  public setPrefix(prefix: string) {
-    this.prefix = prefix
-    return this
-  }
-  public suffix: string = ''
-  public setSuffix(suffix: string) {
-    this.suffix = suffix
-    return this
-  }
-
-  protected toHumanMessage(): string {
-    return ''
-  }
-
-  public message(msg: null | string | Function = null): Reason {
-    return <Reason>super.message(msg)
-  }
-  public clone(): Reason {
-    return new (<typeof Reason>this.constructor)(this.expect, this.actual)
-  }
-
-  public toExpectedString() {
-    return toString(this.expect, { empty: 'undefined' })
-  }
-
-  public toActualString() {
-    return toString(this.actual, { empty: 'undefined' })
-  }
-
-  // human-friendly message
-  public toString(): string {
-    let string = !this.hasMessage() ? this.toHumanMessage() : this.msg
-
-    if (typeof string === 'function') {
-      string = <string>string(this.expect, this.actual)
-    }
-
-    string = this.prefix + string + this.suffix
-
-    return string
-      .replace(/:expected:/g, this.toExpectedString())
-      .replace(/:actual:/g, this.toActualString())
-  }
 }
 
 function pathsToString(paths: string[]) {

@@ -35,9 +35,10 @@ export { Any } from './Any'
 
 // types
 export { default as Verifiable } from './Verifiable'
-export { UnlawfulnessList, Unlawfulness, Reason } from './Unlawful'
+export { UnlawfulnessList, Unlawfulness } from './Unlawful'
 export { default as TypeReason, TypeItem } from './reasons/TypeReason'
 export { default as ToEqualReason } from './reasons/Equal'
+export { default as Reason } from './reasons/Reason'
 export { CheckAble } from './Verifiable'
 
 // util
