@@ -7,7 +7,7 @@
   "author": "imcuttle",
   "scripts": {
     "test": "jest",
-    "dist": "rimraf lib && tsc && cp {src,lib}/final.js",
+    "dist": "rimraf lib && tsc",
     "prepublishOnly": "npm run dist",
     "site": "rimraf _site && typedoc src/walli.ts --readme Readme.md --out _site/ --theme default && touch _site/.nojekyll",
     "preversion": "npm test && npm run changelog",
