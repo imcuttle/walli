@@ -17,6 +17,7 @@ npm install walli --save
 ## [Example](./src/__tests__/examples.spec.ts)
 
 - Expected Struction
+
 ```typescript
 // typescript
 type Person = {
@@ -30,6 +31,7 @@ type Person = {
 ```
 
 - Walli Type's Definition
+
 ```javascript
 import {
   string,
