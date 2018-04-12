@@ -18,6 +18,7 @@ export { Every, default as every } from './Every'
 export { Some, default as some } from './Some'
 export { Custom, default as custom } from './Custom'
 export { default as instanceOf, InstanceOf } from './InstanceOf'
+export { default as stringMatching, StringMatching } from './StringMatching'
 
 export { default as type, TypeVerifiable } from './TypeVerifiable'
 export { Nil } from './Nil'

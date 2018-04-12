@@ -9,6 +9,7 @@ import {
   equal,
   Verifiable,
   not,
+  stringMatching,
   array,
   object,
   objectOf,
@@ -18,7 +19,10 @@ import {
   custom,
   boolean,
   function_,
-  some, undefined_, null_, nil
+  some,
+  undefined_,
+  null_,
+  nil
 } from '../walli'
 import { util } from '../walli'
 const { funcify, constructify, createVerifiableClass, checkEqual } = util
@@ -42,10 +46,16 @@ describe('main test', function() {
       string
         .message('message')
         .message()
-        .check(null).toString()
+        .check(null)
+        .toString()
     ).toEqual('expected type: string, actual type: null.')
 
-    expect(string.message('message').check(null).toString()).toEqual('message')
+    expect(
+      string
+        .message('message')
+        .check(null)
+        .toString()
+    ).toEqual('message')
     //
     expect(string.ok(null)).toBeFalsy()
     expect(string.ok('')).toBeTruthy()
@@ -123,9 +133,11 @@ describe('main test', function() {
     ).toBeFalsy()
 
     console.log(
-      a.check({
-        a: 123
-      }).toString()
+      a
+        .check({
+          a: 123
+        })
+        .toString()
     )
   })
 
@@ -283,6 +295,9 @@ describe('main test', function() {
   })
 
   test('jest expect', () => {
+    // expect('abc').toEqual(
+    //   expect.stringMatching('bc')
+    // )
     expect({
       x: 2,
       a: {
@@ -336,7 +351,7 @@ describe('main test', function() {
     expect(cls().toString()).toBe("verifiableClass('222')")
   })
 
-  it('should immutable', function () {
+  it('should immutable', function() {
     expect(string.message('asdas')).not.toBe(string)
     expect(number.optional).not.toBe(number)
     expect(number.required).not.toBe(number)
@@ -345,5 +360,15 @@ describe('main test', function() {
 
     expect(l.assign({ '2': 'xxxx' })).not.toBe(l)
     expect(l.merge({ 1: 'abc' })).not.toBe(l)
-  });
+  })
+
+  it('should string matching', function() {
+    expect(stringMatching('any').ok('axanyx') === true).toBeTruthy()
+    expect(stringMatching('any').ok('axanyx') === true).toBeTruthy()
+    expect(stringMatching(/^any/).ok('axanyx') === false).toBeTruthy()
+
+    expect(stringMatching('any').toUnlawfulString('axaxnyx')).toBe(
+      "expected: stringMatching(/any/), actual: 'axaxnyx'."
+    )
+  })
 })

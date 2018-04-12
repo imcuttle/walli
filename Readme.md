@@ -124,6 +124,7 @@ And the document named [How to write a customized type](./docs/How-To-Write-Cust
 ### some([a, b, c])
 ### custom((...requests) => string | null)
 ### instanceOf(Type)
+### stringMatching(string | regexp)
 
 ## Class List
 ### Verifiable
