@@ -55,6 +55,7 @@
     "typedoc": "^0.11.1",
     "typescript": "^2.8.1"
   },
+  "license": "MIT",
   "dependencies": {
     "json-stringify-safe": "^5.0.1",
     "lodash": "^4.17.5"
