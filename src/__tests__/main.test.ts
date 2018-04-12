@@ -86,6 +86,11 @@ describe('main test', function() {
     expect(r.toUnlawfulString({ a: 2, c: 'xxxw', b: { c: '2', d: 'd' } })).toBe(
       'c: error .c'
     )
+
+    expect(
+      r.toUnlawfulString({ a: 2, c: 'xxxx', b: { c: '22', d: 'd' } })
+    ).toBe("b['c']: error equal")
+
     expect(
       r.toUnlawfulString({ a: 2, c: 'xxxx', b: { c: '2', d: 'dd' } })
     ).toBe("b['d']: errr")
