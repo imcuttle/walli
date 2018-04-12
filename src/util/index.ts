@@ -13,7 +13,7 @@ const safeStringify = require('json-stringify-safe')
 
 /**
  * Constructify(reverse of funcify) the function, see [[createVerifiableClass]].
- * @param FuncConstructor
+ * @param func
  * @return {(rule?: Rule, options?: Options) => Result}
  */
 export function constructify(func: any) {

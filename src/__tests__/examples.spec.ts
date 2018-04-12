@@ -1,4 +1,4 @@
-import { string, eq, oneOf, array, arrayOf, integer } from '../walli'
+import { string, eq, oneOf, array, arrayOf, integer, be } from '../walli'
 import { util } from '../walli'
 import createFinalVerifiable from '../util/createFinalVerifiable'
 import Verifiable from '../Verifiable'
@@ -79,5 +79,13 @@ describe('examples', function() {
         }
       })
     ).toBe("father['gender']: expected: oneOf(['F', 'M']), actual: 'X'.")
+  })
+
+  it('should stringify', function() {
+    const a = { a: '2' }
+    a['circle'] = a
+    expect(be(a).toUnlawfulString('xxx')).toBe(
+      "expected: {\"a\":\"2\",\"circle\":\"[Circular ~]\"}, actual: 'xxx'."
+    )
   })
 })
