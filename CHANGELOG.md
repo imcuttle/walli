@@ -1,3 +1,13 @@
+<a name="1.0.4"></a>
+## [1.0.4](https://github.com/imcuttle/walli/compare/v1.0.3...v1.0.4) (2018-04-12)
+
+
+### Performance Improvements
+
+* add stringMatching ([1cd2a50](https://github.com/imcuttle/walli/commit/1cd2a50))
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/imcuttle/walli/compare/v1.0.2...v1.0.3) (2018-04-11)
 
