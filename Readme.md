@@ -13,7 +13,7 @@ A manageable and immutable validation library.
 
 ## Installation
 
-```
+```bash
 npm install walli --save
 ```
 
@@ -70,7 +70,7 @@ foo.toUnlawfulString({
 }) === 'name: name error!'
 ```
 
-## [Example](./src/__tests__/examples.spec.ts)
+## [Custom Type](./src/__tests__/examples.spec.ts)
 
 * Expected Struction
 
