@@ -9,6 +9,8 @@ A manageable and immutable validation library.
 
 [Chinese](https://imcuttle.github.io/walli-born)
 
+[REPL](https://npm.runkit.com/walli)
+
 ## Installation
 
 ```
