@@ -1,3 +1,14 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/imcuttle/walli/compare/v1.0.5...v1.1.0) (2018-04-14)
+
+
+### Performance Improvements
+
+* supports extends in (l)eq ([ad13167](https://github.com/imcuttle/walli/commit/ad13167))
+* supports extends in (l)eq ([1bba92d](https://github.com/imcuttle/walli/commit/1bba92d))
+
+
+
 <a name="1.0.5"></a>
 ## [1.0.5](https://github.com/imcuttle/walli/compare/v1.0.4...v1.0.5) (2018-04-13)
 
