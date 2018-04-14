@@ -22,7 +22,8 @@ import {
   some,
   undefined_,
   null_,
-  nil
+  nil,
+  strictNumber
 } from '../walli'
 import { util } from '../walli'
 const { funcify, constructify, createVerifiableClass, checkEqual } = util
@@ -374,6 +375,41 @@ describe('main test', function() {
 
     expect(stringMatching('any').toUnlawfulString('axaxnyx')).toBe(
       "expected: stringMatching(/any/), actual: 'axaxnyx'."
+    )
+  })
+
+  it('should eq extends', function() {
+    const par = eq({
+      name: string,
+      age: number,
+
+      gender: oneOf(['M', 'F'])
+    })
+
+    const son = eq({
+      name: string.optional,
+      age: strictNumber,
+      noop: '22'
+    }).extends(par)
+
+    expect(
+      par.toUnlawfulString({
+        age: 12
+      })
+    ).toBe(
+      'name: expected type: string, actual type: undefined.\n' +
+        "gender: expected: oneOf(['M', 'F']), actual: undefined."
+    )
+
+    expect(
+      son.toUnlawfulString({
+        age: '2',
+        noop: '22'
+        // gender: 'M'
+      })
+    ).toBe(
+      'age: expected type: StrictNumber, actual type: string.\n' +
+        "gender: expected: oneOf(['M', 'F']), actual: undefined."
     )
   })
 })

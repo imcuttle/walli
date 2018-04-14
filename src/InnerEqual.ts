@@ -26,9 +26,21 @@ export class InnerEqual extends Verifiable {
     return new InnerEqual(rule, this.options)
   }
 
-  private _extends(method: Function, ...objs: any[]) {
-    const clone = this.clone()
+  public clone() {
+    return new (<typeof InnerEqual>this.constructor)(
+      _.clone(this.rule),
+      this.options
+    )
+  }
 
+  public deepClone() {
+    return new (<typeof InnerEqual>this.constructor)(
+      _.cloneDeep(this.rule),
+      this.options
+    )
+  }
+
+  private _extends(clone: InnerEqual, method: Function, ...objs: any[]) {
     objs = objs.map(obj => {
       if (obj instanceof Verifiable) {
         obj = obj.rule
@@ -46,7 +58,16 @@ export class InnerEqual extends Verifiable {
    * @return {Verifiable}
    */
   public merge(...data: Array<any | Verifiable>) {
-    return this._extends(_.merge, ...data)
+    return this._extends(this.deepClone(), _.merge, ...data)
+  }
+
+  /**
+   * Extends parent
+   * @param {InnerEqual} parent
+   * @return {Verifiable}
+   */
+  public extends(parent: InnerEqual) {
+    return parent.assign(this)
   }
 
   /**
@@ -55,7 +76,7 @@ export class InnerEqual extends Verifiable {
    * @return {Verifiable}
    */
   public assign(...data: Array<any | Verifiable>) {
-    return this._extends(_.assign, ...data)
+    return this._extends(this.clone(), _.assign, ...data)
   }
 
   protected _check(request: any) {
