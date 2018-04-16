@@ -244,3 +244,7 @@ And the document named [How to write a customized type](./docs/How-To-Write-Cust
 ### createVerifiableClass(entities, options)
 
 ### createFinalVerifiable(Verifiable, [rule, options])
+
+## Related
+
+- [json-schema-walli](https://github.com/imcuttle/transform-json-schema) Transform json schema to walli definition.
