@@ -135,6 +135,11 @@ const es6Person = funcify(Person)
 
 And the document named [How to write a customized type](./docs/How-To-Write-Customized-Type.md) would give you more help.
 
+## Related
+
+- [json-schema-walli](https://github.com/imcuttle/transform-json-schema) Transform json schema to walli definition.
+
+
 ## [Exported API](./src/walli.ts)
 
 [More Detail](https://imcuttle.github.io/walli)
@@ -244,7 +249,3 @@ And the document named [How to write a customized type](./docs/How-To-Write-Cust
 ### createVerifiableClass(entities, options)
 
 ### createFinalVerifiable(Verifiable, [rule, options])
-
-## Related
-
-- [json-schema-walli](https://github.com/imcuttle/transform-json-schema) Transform json schema to walli definition.
