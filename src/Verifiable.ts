@@ -219,6 +219,10 @@ export default class Verifiable extends HasMessage {
    */
   public toString() {
     let name = this.getTypeName()
-    return `${name}(${this.getRuleString()})`
+    let suffix = ''
+    if (!this.isRequired) {
+      suffix = '.optional'
+    }
+    return `${name}(${this.getRuleString()})${suffix}`
   }
 }

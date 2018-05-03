@@ -420,5 +420,12 @@ describe('main test', function() {
         email: string
       }).toString()
     ).toBe('equal({name:string, email:string})')
+
+    expect(
+      eq({
+        name: string.optional,
+        email: string
+      }).toString()
+    ).toBe('equal({name:string.optional, email:string})')
   })
 })
