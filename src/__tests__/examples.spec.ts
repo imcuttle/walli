@@ -85,7 +85,7 @@ describe('examples', function() {
     const a = { a: '2' }
     a['circle'] = a
     expect(be(a).toUnlawfulString('xxx')).toBe(
-      "expected: {\"a\":\"2\",\"circle\":\"[Circular ~]\"}, actual: 'xxx'."
+      "expected: {a:'2', circle:[Circular]}, actual: 'xxx'."
     )
   })
 })

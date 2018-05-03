@@ -4,7 +4,7 @@
  * @date 2018/4/7
  * @description
  */
-import { find, isArray, camelCase, isPlainObject } from 'lodash'
+import { find, isArray, each, camelCase, isPlainObject } from 'lodash'
 import Verifiable from '../Verifiable'
 import { single } from './quote'
 import { FunctionWithName } from '../Unlawful'
@@ -125,10 +125,11 @@ export function getTypeName(ins: any): string {
 /**
  * To pretty string from anything.
  * @param rule
- * @param {any} empty - the string placeholder when equals undefined
- * @return {any}
+ * @param {object} options.empty - the string placeholder when equals undefined
+ * @return {string}
  */
-export function toString(rule, { empty = 'undefined' } = {}) {
+export function toString(rule, options?) {
+  const { empty = 'undefined' } = options || {}
   if (typeof rule === 'undefined') {
     return empty
   }
@@ -137,7 +138,21 @@ export function toString(rule, { empty = 'undefined' } = {}) {
     return `[${rule.map(x => toString(x)).join(', ')}]`
   }
   if (isPlainObject(rule)) {
-    return safeStringify(rule)
+    let strings = []
+    each(rule, (value, key) => {
+      let valStr = ''
+      if (value === rule) {
+        valStr = '[Circular]'
+      }
+      else if (value instanceof Verifiable) {
+        valStr = value.toString()
+      } else {
+        valStr = toString(value, options) // toString(value, options)
+      }
+
+      strings.push(`${key}:${valStr}`)
+    })
+    return ['{', strings.join(', '), '}'].join('')
   }
 
   if (typeof rule === 'string') {

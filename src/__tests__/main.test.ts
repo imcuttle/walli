@@ -412,4 +412,13 @@ describe('main test', function() {
         "gender: expected: oneOf(['M', 'F']), actual: undefined."
     )
   })
+
+  it('should rule stringify', function() {
+    expect(
+      eq({
+        name: string,
+        email: string
+      }).toString()
+    ).toBe('equal({name:string, email:string})')
+  })
 })
