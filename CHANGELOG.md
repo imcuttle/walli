@@ -1,3 +1,14 @@
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/imcuttle/walli/compare/v1.1.1...v1.1.2) (2018-05-03)
+
+
+### Bug Fixes
+
+* toString about plainObject nested with Verifiable instance ([924a621](https://github.com/imcuttle/walli/commit/924a621))
+* toString about plainObject nested with Verifiable instance ([d4bc9d8](https://github.com/imcuttle/walli/commit/d4bc9d8))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/imcuttle/walli/compare/v1.1.0...v1.1.1) (2018-05-03)
 
