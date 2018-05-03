@@ -36,6 +36,7 @@ export default class Verifiable extends HasMessage {
     super()
     this.rule = rule
     this.options = options
+    this.isRequired = true
   }
 
   /**
@@ -81,7 +82,7 @@ export default class Verifiable extends HasMessage {
    * The verifiable instance is required.
    * @type {boolean}
    */
-  public isRequired: boolean = true
+  public isRequired: boolean
 
   private _setRequired(req: boolean) {
     this.isRequired = req
@@ -223,6 +224,8 @@ export default class Verifiable extends HasMessage {
     if (!this.isRequired) {
       suffix = '.optional'
     }
-    return `${name}(${this.getRuleString()})${suffix}`
+    let left = '('
+    let right = ')'
+    return `${name}${left}${this.getRuleString()}${right}${suffix}`
   }
 }

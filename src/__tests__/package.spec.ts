@@ -262,7 +262,8 @@ describe('package', function() {
     expect(age().ok(22) === true).toBeTruthy()
     expect(age().ok('22') === false).toBeTruthy()
     expect(age().getTypeName() === 'Age').toBeTruthy()
-    expect(age().toString() === 'Age()').toBeTruthy()
+    expect(age().toString()).toBe('Age()')
+    expect(age().isRequired).toBe(true)
   })
 
   it('should es6 inheritance', function() {

@@ -78,8 +78,7 @@ export default function createVerifiableClass<
   } = entity
 
   const VerifiableClass = function() {
-    this.rule = getInitialRule()
-    this.options = getInitialOptions()
+    ParentClass.apply(this, [getInitialRule(), getInitialOptions()])
   }
   ParentClass = constructify(ParentClass)
   inherits(VerifiableClass, ParentClass)

@@ -426,6 +426,6 @@ describe('main test', function() {
         name: string.optional,
         email: string
       }).toString()
-    ).toBe('equal({name:string.optional, email:string})')
+    ).toBe('equal({name:string().optional, email:string})')
   })
 })
