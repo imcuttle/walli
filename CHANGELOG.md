@@ -1,3 +1,13 @@
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/imcuttle/walli/compare/v1.1.2...v1.1.3) (2018-08-18)
+
+
+### Bug Fixes
+
+* getTypeName when input is '' ([5eb436f](https://github.com/imcuttle/walli/commit/5eb436f))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/imcuttle/walli/compare/v1.1.1...v1.1.2) (2018-05-03)
 
