@@ -115,7 +115,7 @@ export function getDisplayName(
  */
 export function getTypeName(ins: any): string {
   let name = ins + ''
-  if (ins && ins.constructor) {
+  if (ins != null && ins.constructor) {
     const found = find(rename, ([Method, name]) => Method === ins.constructor)
     name = <string>(found && found[1]) || getDisplayName(ins.constructor)
   }

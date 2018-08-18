@@ -6,6 +6,7 @@ import {
   be,
   number,
   oneOf,
+  strictNumber,
   equal,
   Verifiable,
   array,
@@ -21,6 +22,7 @@ import {
   objectOf,
   util
 } from '../walli'
+import {getTypeName} from "../util";
 const { funcify, constructify, createVerifiableClass, checkEqual } = util
 
 const pkg = require('../../package.json')
@@ -327,6 +329,20 @@ describe('package', function() {
       name: string
     })
   })
+
+  it('should getTypeName', function() {
+    expect(getTypeName('')).toEqual('string')
+    expect(getTypeName(1)).toEqual('number')
+    expect(getTypeName(0)).toEqual('number')
+    expect(getTypeName(null)).toEqual('null')
+    expect(getTypeName(false)).toEqual('boolean')
+    expect(getTypeName(undefined)).toEqual('undefined')
+    expect(getTypeName('1')).toEqual('string')
+  })
+
+  it('should strictNumber', function () {
+    expect(strictNumber.check('').toString()).toEqual('expected type: StrictNumber, actual type: string.')
+  });
 
   it('should dynamic message', function() {
     expect(string.message(':expected::actual:').toUnlawfulString(2222)).toBe(
