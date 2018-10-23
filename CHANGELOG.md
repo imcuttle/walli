@@ -1,3 +1,13 @@
+<a name="1.1.4"></a>
+## [1.1.4](https://github.com/imcuttle/walli/compare/v1.1.3...v1.1.4) (2018-10-23)
+
+
+### Bug Fixes
+
+* instanceOf stringify ([29ab92a](https://github.com/imcuttle/walli/commit/29ab92a))
+
+
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://github.com/imcuttle/walli/compare/v1.1.2...v1.1.3) (2018-08-18)
 
