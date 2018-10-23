@@ -29,5 +29,5 @@ jobs:
 
     - stage: Test
       before_script: npm install codecov
-      script: npm test
+      script: npm test -- --coverage
       after_script: codecov --token=$CODECOV_TOKEN

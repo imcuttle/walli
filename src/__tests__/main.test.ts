@@ -269,7 +269,15 @@ describe('main test', function() {
     expect(instanceOf(Function).ok('22')).toBeFalsy()
 
     expect(instanceOf(Function).toUnlawfulString('22')).toBe(
-      'should instance of function, but string'
+      'should instance of Function, but string'
+    )
+
+    expect(instanceOf(Object).toUnlawfulString('22')).toBe(
+      'should instance of Object, but string'
+    )
+
+    expect(instanceOf(Date).toUnlawfulString('22')).toBe(
+      'should instance of Date, but string'
     )
   })
 
