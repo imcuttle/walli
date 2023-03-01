@@ -4,7 +4,6 @@
     "outDir": "lib",
     "sourceMap": false,
     "declaration": true,
-    "module": "commonjs",
     "removeComments": false,
     "moduleResolution": "node",
     "lib": [
