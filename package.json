@@ -13,6 +13,7 @@
     "dist": "npx run-p \"dist:*\"",
     "prepublishOnly": "npm run dist",
     "site": "rimraf _site && typedoc src/walli.ts --readme Readme.md --out _site/ --theme default && touch _site/.nojekyll",
+    "postpublish": "npm run site",
     "preversion": "npm test",
     "version": "npm run changelog",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"

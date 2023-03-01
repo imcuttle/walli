@@ -7,6 +7,17 @@
 import { funcify } from "./util/index";
 import { TypeVerifiable } from "./TypeVerifiable";
 
+/**
+ * False Like
+ *
+ * ```javascript
+ * falseLike.ok(false) === true
+ * falseLike.ok(true) === false
+ * falseLike.ok(0) === true
+ * falseLike.ok(1) === false
+ * falseLike.ok('') === true
+ * ```
+ */
 export class FalseLike extends TypeVerifiable {
   rule = v => !v;
   options = {

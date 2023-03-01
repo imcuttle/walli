@@ -4,6 +4,7 @@
     "outDir": "lib",
     "sourceMap": false,
     "declaration": true,
+    "module": "es6",
     "removeComments": false,
     "moduleResolution": "node",
     "lib": [
