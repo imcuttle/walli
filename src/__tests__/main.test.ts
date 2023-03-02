@@ -120,7 +120,10 @@ describe("main test", function() {
   it("should leq", function() {
     expect(leq({}).check({}).ok).toBeTruthy();
     expect(leq(1).check(1).ok).toBeTruthy();
-    expect(leq(1).check("1").ok).toBeFalsy();
+    expect(leq(1).check("1").ok).toBeTruthy();
+    expect(leq(['222']).ok([222])).toBeFalsy();
+    expect(leq({ a: '2' }).ok({ a: 2 })).toBeFalsy();
+    expect(leq({ a: leq('2') }).ok({ a: 2 })).toBeTruthy();
     expect(leq({}).ok({ a: 2 })).toBeTruthy();
   });
 
