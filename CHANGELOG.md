@@ -1,3 +1,8 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/imcuttle/walli/compare/v1.1.5...v1.2.0) (2023-03-02)
+
+
+
 <a name="1.1.5"></a>
 ## [1.1.5](https://github.com/imcuttle/walli/compare/v1.1.4...v1.1.5) (2023-03-01)
 

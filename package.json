@@ -1,6 +1,6 @@
 {
   "name": "walli",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "main": "lib/walli",
   "types": "lib/walli.d.ts",
   "module": "es/walli",
