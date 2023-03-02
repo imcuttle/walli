@@ -137,14 +137,7 @@ export class InnerEqual extends Verifiable {
             return;
           }
 
-          let checked = checkEqual(
-            request[key],
-            r,
-            rule =>
-              primitive().ok(rule)
-                ? new InnerEqual(rule, { ...this.options, loose: false })
-                : new InnerEqual(rule, { ...this.options })
-          );
+          let checked = checkEqual(request[key], r, this._eq);
           if (!checked.ok) {
             checked.unshiftPaths(key);
 

@@ -16,7 +16,7 @@ import { InnerEqual } from './InnerEqual'
  * leq([]).ok([]) === true
  * leq('222').ok('222') === true
  * leq('222').ok(222) === true
- * leq(['222']).ok([222]) === false
+ * leq(['222']).ok([222]) === true
  * leq({ a: { b: '2' } }).ok({ a: { b: '2' } }) === true
  * // The actual value contains `.c` and `.a.d` which are allowed in loose equation.
  * leq({ a: { b: '2' } }).ok({ a: { b: '2', d: 'allowed' }, c: 'ddd' }) === true

@@ -121,8 +121,8 @@ describe("main test", function() {
     expect(leq({}).check({}).ok).toBeTruthy();
     expect(leq(1).check(1).ok).toBeTruthy();
     expect(leq(1).check("1").ok).toBeTruthy();
-    expect(leq(['222']).ok([222])).toBeFalsy();
-    expect(leq({ a: '2' }).ok({ a: 2 })).toBeFalsy();
+    expect(leq(['222']).ok([222])).toBeTruthy();
+    expect(leq({ a: '2' }).ok({ a: 2 })).toBeTruthy();
     expect(leq({ a: leq('2') }).ok({ a: 2 })).toBeTruthy();
     expect(leq({}).ok({ a: 2 })).toBeTruthy();
   });
